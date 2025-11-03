@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="893.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Pane prefHeight="624.0" prefWidth="744.0">
+               <children>
+                  <VBox layoutX="29.0" prefHeight="200.0" prefWidth="501.0" />
+                  <VBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="522.0">
+                     <children>
+                        <Label fx:id="lblDateTime" style="-fx-font-size:14;" text="29/10/2025 13.05 P.M" textFill="white" />
+                     </children>
+                  </VBox>
+                  <Label layoutX="322.0" layoutY="186.0" rotate="-90.0" style="-fx-text-fill: rgba(255,255,255,0.1); -fx-font-size:100; -fx-font-family: 'Brush Script MT';" text="Ruvique" />
+                  <Label layoutX="48.0" layoutY="80.0" prefHeight="40.0" prefWidth="425.0" style="-fx-font-size:28; -fx-font-weight:bold; -fx-text-fill: white;" text="Welcome to RuviQue Master...." />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </center>
+   <left>
+      <Pane prefHeight="624.0" prefWidth="193.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>
