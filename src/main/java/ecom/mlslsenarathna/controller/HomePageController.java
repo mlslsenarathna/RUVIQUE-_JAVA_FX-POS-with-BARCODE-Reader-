@@ -9,6 +9,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class HomePageController {
 
     @FXML
@@ -50,14 +52,8 @@ public class HomePageController {
 
     @FXML
     void btnHomeOnAction(ActionEvent event) {
-        Stage stage= (Stage) btnHome.getScene().getWindow();
 
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerManagement.fxml"))));
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
 
 
     }
