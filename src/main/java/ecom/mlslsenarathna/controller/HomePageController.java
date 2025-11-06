@@ -42,6 +42,14 @@ public class HomePageController {
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) {
+        Stage stage= (Stage) btnCustomer.getScene().getWindow();
+
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerManagement.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
@@ -52,6 +60,16 @@ public class HomePageController {
 
     @FXML
     void btnHomeOnAction(ActionEvent event) {
+        Stage stage= (Stage) btnHome.getScene().getWindow();
+
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/HomePageView.fxml"))));
+            stage.setMaximized(true);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
 
 

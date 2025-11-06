@@ -3,9 +3,15 @@ package ecom.mlslsenarathna.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import ecom.mlslsenarathna.model.dto.AddressDTO;
+import ecom.mlslsenarathna.model.dto.CustomerDTO;
+import ecom.mlslsenarathna.service.CustomerService;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
@@ -13,10 +19,18 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import java.time.format.DateTimeFormatter;
+
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
 
-public class CustomerController {
+import java.util.ResourceBundle;
+
+public class CustomerController implements Initializable {
+
+    CustomerService customerService=new CustomerService();
 
     @FXML
     private JFXButton btnCancle;
@@ -67,7 +81,7 @@ public class CustomerController {
     private JFXButton btnViewCustomers;
 
     @FXML
-    private JFXComboBox<?> cmdSex;
+    private JFXComboBox<String> cmdSex;
 
     @FXML
     private DatePicker dobDate;
@@ -106,6 +120,16 @@ public class CustomerController {
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) {
+        Stage stage= (Stage) btnCustomer.getScene().getWindow();
+
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerManagement.fxml"))));
+            stage.setMaximized(true);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -149,9 +173,28 @@ public class CustomerController {
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
+       CustomerDTO newCustomer=getNewRegisterCustomer();
+        customerService.registerCustomer(newCustomer);
 
     }
 
+    private CustomerDTO getNewRegisterCustomer() {
+        String custId=lblCustomerId.getText();
+        String name=txtName.getText();
+        String mobileNum=txtMobile.getText();
+        String sex=cmdSex.getValue();
+        AddressDTO address=new AddressDTO(
+                txtAddressLine1.getText(),
+                txtAddressLine2.getText(),
+                txtCity.getText(),
+                txtDistrict.getText(),
+                txtPostalCode.getText()
+
+        );
+        LocalDate dob=dobDate.getValue();
+        return new CustomerDTO(custId,name,mobileNum,sex,address,dob);
+
+    }
     @FXML
     void btnResetFormOnAction(ActionEvent event) {
 
@@ -298,6 +341,32 @@ public class CustomerController {
     @FXML
     void onReleaseSupplier(MouseEvent event) {
         btnSuppilers.setStyle("-fx-background-color: #35363A; -fx-text-fill: white;");
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setSexComboBox();
+        setDateAndTime();
+
+
+    }
+
+    private void setSexComboBox() {
+        cmdSex.getItems().addAll("Female","Male");
+    }
+
+    private void setDateAndTime() {
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
+
+        Timeline clock = new Timeline(
+                new KeyFrame(javafx.util.Duration.seconds(1), e -> {
+                    String date = java.time.LocalDate.now().toString();
+                    String time = java.time.LocalTime.now().format(timeFormatter);
+                    lblDateTime.setText(date + "  " + time);
+                })
+        );
+        clock.setCycleCount(Timeline.INDEFINITE); // run forever
+        clock.play(); // start clock
     }
 
 }
