@@ -30,4 +30,27 @@ public class AddressService {
         }
         return "A001";
     }
+
+    public AddressDTO getAddressById(String addressId) {
+       AddressEntity addressEntity= addressRepository.getAddressById(addressId);
+       return new AddressDTO(
+               addressEntity.getAddressId(),
+               addressEntity.getAddressLine1(),
+               addressEntity.getAdddressLine2(),
+               addressEntity.getCity(),
+               addressEntity.getDistrict(),
+               addressEntity.getPostalCode()
+       );
+    }
+
+    public void updateAddress(AddressDTO addressDTO) {
+        addressRepository.updateAddress(new AddressEntity(
+                addressDTO.getAddressId(),
+                addressDTO.getAddressLine1(),
+                addressDTO.getAdddressLine2(),
+                addressDTO.getCity(),
+                addressDTO.getDistrict(),
+                addressDTO.getPostalCode()
+        ));
+    }
 }

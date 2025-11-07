@@ -224,7 +224,15 @@ public class CustomerController implements Initializable {
 
     @FXML
     void btnUpdateAddressOnAction(ActionEvent event) {
+        Stage stage= (Stage) btnUpdateAddress.getScene().getWindow();
 
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UpdateAddress.fxml"))));
+            stage.setMaximized(true);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

@@ -1,14 +1,192 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="view.UpdateAddress"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="540.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.UpdateAddressController">
+   <children>
+      <Label layoutX="65.0" layoutY="58.0" prefHeight="262.0" prefWidth="473.0" style="-fx-text-fill: rgba(255,255,255,0.1); -fx-font-size: 155; -fx-font-family: 'Brush Script MT';" text="Ruvique" />
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="390.0" prefWidth="590.0">
+         <top>
+            <Label prefHeight="40.0" prefWidth="182.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Update Customer Mobile" BorderPane.alignment="CENTER" />
+         </top>
+         <center>
+            <Pane prefHeight="350.0" prefWidth="540.0" BorderPane.alignment="CENTER">
+               <children>
+                  <JFXTextField fx:id="txtSerchInput" focusColor="WHITE" layoutX="16.0" layoutY="37.0" promptText="Search" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="btnSearch" layoutX="194.0" layoutY="37.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Search">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.08344549125168237">
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.7658142664872138">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="20.0" layoutY="6.0" text="Customer Id Or Current Mobile Number" textFill="#f2f2f2" />
+                  <JFXButton fx:id="btnSet" layoutX="20.0" layoutY="306.0" onAction="#btnSetOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Set">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.08344549125168237">
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.7658142664872138">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBack" layoutX="155.0" layoutY="306.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Back">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.08344549125168237">
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.7658142664872138">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <GridPane layoutX="14.0" layoutY="86.0" prefHeight="217.0" prefWidth="164.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <Label prefHeight="21.0" prefWidth="118.0" text="Address Line 1  :" textFill="#efebeb">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="21.0" prefWidth="119.0" text="Address Line 2  :" textFill="#efebeb" GridPane.rowIndex="1">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="21.0" prefWidth="106.0" text="        City          :" textFill="#efebeb" GridPane.rowIndex="2">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="21.0" prefWidth="123.0" text="        District      :" textFill="#efebeb" GridPane.rowIndex="3">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label prefHeight="21.0" prefWidth="124.0" text="Postal Code      :" textFill="#efebeb" GridPane.rowIndex="4">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="156.0" layoutY="83.0" prefHeight="186.0" prefWidth="361.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="24.800012207031244" minHeight="10.0" prefHeight="21.599999999999994" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="22.400000000000006" minHeight="10.0" prefHeight="22.400000000000006" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <JFXTextField fx:id="txtAddressLine2" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Address Line 2" style="-fx-text-fill: white;" GridPane.rowIndex="1" />
+                        <JFXTextField fx:id="txtCity" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="374.0" promptText="City" style="-fx-text-fill: white;" GridPane.rowIndex="2" />
+                        <JFXTextField fx:id="txtDistrict" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="15.0" prefWidth="374.0" promptText="District" style="-fx-text-fill: white;" GridPane.rowIndex="3" />
+                        <JFXTextField fx:id="txtPostalCode" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Postal Code" style="-fx-text-fill: white;" GridPane.rowIndex="4" />
+                        <JFXTextField fx:id="txtAddressLine1" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="314.0" promptText="Address Line 1" style="-fx-text-fill: white;" />
+                     </children>
+                  </GridPane>
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
 </AnchorPane>

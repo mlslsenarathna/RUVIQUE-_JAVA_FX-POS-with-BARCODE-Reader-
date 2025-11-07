@@ -1,5 +1,6 @@
 package ecom.mlslsenarathna.repository.impl;
 
+import ecom.mlslsenarathna.model.entity.CustomerEntity;
 import ecom.mlslsenarathna.repository.AddressRepository;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -49,5 +50,54 @@ public class AddressRepositoryImpl implements AddressRepository {
         Transaction transaction=session.beginTransaction();
         session.merge(addressEntity);
         transaction.commit();
+    }
+
+    @Override
+    public AddressEntity getAddressById(String addressId) {
+        AddressEntity addressEntity = null;
+        Transaction transaction = null;
+
+
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+
+
+            addressEntity= session.find(AddressEntity.class, addressId);
+
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            e.printStackTrace();
+        }
+
+        return addressEntity;
+    }
+
+    @Override
+    public void updateAddress(AddressEntity addressEntity) {
+        Transaction transaction = null;
+
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+            session.merge(addressEntity);
+            transaction.commit();
+            System.out.println("✅ Customer updated successfully: " + addressEntity);
+
+
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }
     }
 }
