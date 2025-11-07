@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import ecom.mlslsenarathna.model.dto.AddressDTO;
 import ecom.mlslsenarathna.model.dto.CustomerDTO;
+import ecom.mlslsenarathna.service.AddressService;
 import ecom.mlslsenarathna.service.CustomerService;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -31,6 +32,7 @@ import java.util.ResourceBundle;
 public class CustomerController implements Initializable {
 
     CustomerService customerService=new CustomerService();
+    AddressService addressService=new AddressService();
 
     @FXML
     private JFXButton btnCancle;
@@ -175,6 +177,7 @@ public class CustomerController implements Initializable {
     void btnRegisterOnAction(ActionEvent event) {
        CustomerDTO newCustomer=getNewRegisterCustomer();
         customerService.registerCustomer(newCustomer);
+        resetForm();
 
     }
 
@@ -183,7 +186,9 @@ public class CustomerController implements Initializable {
         String name=txtName.getText();
         String mobileNum=txtMobile.getText();
         String sex=cmdSex.getValue();
+        String addressId= addressService.getAddressId();
         AddressDTO address=new AddressDTO(
+                addressId,
                 txtAddressLine1.getText(),
                 txtAddressLine2.getText(),
                 txtCity.getText(),
@@ -192,11 +197,13 @@ public class CustomerController implements Initializable {
 
         );
         LocalDate dob=dobDate.getValue();
-        return new CustomerDTO(custId,name,mobileNum,sex,address,dob);
+        addressService.registrationAddress(address);
+        return new CustomerDTO(custId,name,mobileNum,sex,addressId,dob);
 
     }
     @FXML
     void btnResetFormOnAction(ActionEvent event) {
+        resetForm();
 
     }
 
@@ -222,6 +229,16 @@ public class CustomerController implements Initializable {
 
     @FXML
     void btnUpdateMobileNumberOnAction(ActionEvent event) {
+        Stage stage= (Stage) btnUpdateMobileNumber.getScene().getWindow();
+
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UpdateMobile.fxml"))));
+            stage.setMaximized(true);
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
 
     }
 
@@ -347,7 +364,7 @@ public class CustomerController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setSexComboBox();
         setDateAndTime();
-
+        lblCustomerId.setText(customerService.getCustomerID());
 
     }
 
@@ -367,6 +384,18 @@ public class CustomerController implements Initializable {
         );
         clock.setCycleCount(Timeline.INDEFINITE); // run forever
         clock.play(); // start clock
+    }
+    private  void resetForm(){
+        lblCustomerId.setText(customerService.getCustomerID());
+        txtName.setText(null);
+        txtMobile.setText(null);
+        cmdSex.setValue(null);
+        txtAddressLine1.setText(null);
+        txtAddressLine2.setText(null);
+        txtCity.setText(null);
+        txtDistrict.setText(null);
+        txtPostalCode.setText(null);
+        dobDate.setValue(null);
     }
 
 }

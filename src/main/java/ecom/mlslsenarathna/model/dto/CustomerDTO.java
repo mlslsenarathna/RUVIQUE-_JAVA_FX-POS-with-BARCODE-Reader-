@@ -14,7 +14,7 @@ public class CustomerDTO {
     private String custName;
     private String custMobile;
     private String sex;
-    private AddressDTO custAddress;
+    private String addressId;
     private LocalDate dob;
 
 }

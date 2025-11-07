@@ -1,17 +1,24 @@
 package ecom.mlslsenarathna.controller;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 
-public class HomePageController {
+public class HomePageController implements Initializable {
 
     @FXML
     private Button btnCustomer;
@@ -39,6 +46,10 @@ public class HomePageController {
 
     @FXML
     private ImageView btnTiktok;
+
+    @FXML
+    private Label lblDateTime;
+
 
     @FXML
     void btnCustomerOnAction(ActionEvent event) {
@@ -219,5 +230,22 @@ public class HomePageController {
     void onReleaseSupplier(MouseEvent event) {
         btnSuppilers.setStyle("-fx-background-color: #35363A; -fx-text-fill: white;");
     }
+    private void setDateAndTime() {
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
 
+        Timeline clock = new Timeline(
+                new KeyFrame(javafx.util.Duration.seconds(1), e -> {
+                    String date = java.time.LocalDate.now().toString();
+                    String time = java.time.LocalTime.now().format(timeFormatter);
+                    lblDateTime.setText(date + "  " + time);
+                })
+        );
+        clock.setCycleCount(Timeline.INDEFINITE); // run forever
+        clock.play(); // start clock
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setDateAndTime();
+    }
 }
