@@ -12,4 +12,6 @@ public interface CustomerRepository {
     CustomerEntity searchCustomerByMobile(String input);
 
     void updateCustomerByID(CustomerEntity customerEntity);
+
+    void deleteCustomerById(CustomerEntity customerEntity);
 }

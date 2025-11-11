@@ -1,6 +1,8 @@
 package ecom.mlslsenarathna.service;
 
+import ecom.mlslsenarathna.model.dto.AddressDTO;
 import ecom.mlslsenarathna.model.dto.CustomerDTO;
+import ecom.mlslsenarathna.model.entity.AddressEntity;
 import ecom.mlslsenarathna.model.entity.CustomerEntity;
 import ecom.mlslsenarathna.repository.AddressRepository;
 import ecom.mlslsenarathna.repository.CustomerRepository;
@@ -54,6 +56,7 @@ public class CustomerService {
     }
 
     public CustomerDTO searchCustomerId(String input) {
+
         CustomerEntity customerEntity=customerRepository.searchCustomerById(input);
         if(customerEntity!=null){
             return  new CustomerDTO(
@@ -106,5 +109,12 @@ public class CustomerService {
             return true;
         }
         return false;
+    }
+
+    public void deleteByCustomerId(String custId) {
+        CustomerEntity customerEntity=customerRepository.searchCustomerById(custId);
+        AddressEntity addressEntity=addressRepository.getAddressById(customerEntity.getAddressId()) ;
+        customerRepository.deleteCustomerById(customerEntity);
+        addressRepository.deleteAddressById(addressEntity);
     }
 }

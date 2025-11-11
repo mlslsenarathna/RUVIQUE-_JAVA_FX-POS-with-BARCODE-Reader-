@@ -195,6 +195,8 @@ public class CustomerController implements Initializable {
     public void btnCancleOnAction(ActionEvent actionEvent) {
     }
 
+
+
     public void btnDeleteCustomerOnAction(ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DeleteCustomer.fxml"));

@@ -42,10 +42,17 @@ public class UpdateMobileController {
     }
 
     @FXML
+    void txtSerchInputOnAction(ActionEvent event) {
+         btnSearch.fire();
+    }
+
+    @FXML
     void btnSearchOnAction(ActionEvent event) {
        String input=txtSerchInput.getText();
+        String id = input.substring(0, 1).toUpperCase() + input.substring(1);
 
-        if(customerService.isCustomerId(input)){
+
+        if(customerService.isCustomerId(id)){
             CustomerDTO customerDTO=customerService.searchCustomerId(input);
             if(customerService.isCustomerDTONull(customerDTO)){
                 txtCurrentNumber.setText(customerDTO.getCustMobile());
@@ -53,7 +60,7 @@ public class UpdateMobileController {
                 JOptionPane.showMessageDialog(null,"Update Failed Check cust Id");
             }
 
-        }else if(customerService.isMobileNumber(input)){
+        }else if(customerService.isMobileNumber(id)){
            CustomerDTO customerDTO= customerService.searchCustomerPhone(input);
             if(customerService.isCustomerDTONull(customerDTO)) {
                 txtCurrentNumber.setText(customerDTO.getCustMobile());

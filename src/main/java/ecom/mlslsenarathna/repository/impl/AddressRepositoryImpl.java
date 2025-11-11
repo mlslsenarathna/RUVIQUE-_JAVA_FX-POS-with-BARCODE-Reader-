@@ -100,4 +100,26 @@ public class AddressRepositoryImpl implements AddressRepository {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void deleteAddressById(AddressEntity addressEntity) {
+        Transaction transaction = null;
+
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+
+
+            session.remove(addressEntity);
+
+            transaction.commit();
+
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }
+    }
 }

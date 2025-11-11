@@ -54,8 +54,10 @@ public class UpdateAddressController {
     @FXML
     void btnSearchOnAction(ActionEvent event) {
         String input=txtSerchInput.getText();
+        String id = input.substring(0, 1).toUpperCase() + input.substring(1);
 
-        if(customerService.isCustomerId(input)){
+
+        if(customerService.isCustomerId(id)){
             CustomerDTO customerDTO=customerService.searchCustomerId(input);
             AddressDTO addressDTO=addressService.getAddressById(customerDTO.getAddressId());
             txtAddressLine1.setText(addressDTO.getAddressLine1());
@@ -65,7 +67,7 @@ public class UpdateAddressController {
             txtPostalCode.setText(addressDTO.getPostalCode());
 
 
-        }else if(customerService.isMobileNumber(input)){
+        }else if(customerService.isMobileNumber(id)){
             CustomerDTO customerDTO= customerService.searchCustomerPhone(input);
             AddressDTO addressDTO=addressService.getAddressById(customerDTO.getAddressId());
             txtAddressLine1.setText(addressDTO.getAddressLine1());
@@ -78,6 +80,10 @@ public class UpdateAddressController {
             JOptionPane.showMessageDialog(null,"Please Check Input");
         }
 
+    }
+    @FXML
+    void txtSerchInputOnAction(ActionEvent event) {
+        btnSearch.fire();
     }
 
     @FXML

@@ -16,7 +16,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="582.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.DeleteCustomerController">
    <children>
       <Pane prefHeight="582.0" prefWidth="482.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -105,18 +104,39 @@
                               <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <JFXTextField fx:id="txtName" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Name" />
-                              <JFXTextField fx:id="txtMobile" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Mobile Number" GridPane.rowIndex="1" />
-                              <JFXComboBox fx:id="cmdSex" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="115.0" promptText="Choose Yours" GridPane.rowIndex="2" />
-                              <JFXTextField fx:id="txtAddressLine1" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Address Line 1" GridPane.rowIndex="3" />
-                              <JFXTextField fx:id="txtAddressLine2" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Address Line 2" GridPane.rowIndex="4" />
-                              <JFXTextField fx:id="txtCity" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="City" GridPane.rowIndex="5" />
-                              <JFXTextField fx:id="txtDistrict" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="District" GridPane.rowIndex="6" />
-                              <JFXTextField fx:id="txtPostalCode" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Postal Code" GridPane.rowIndex="7" />
-                              <DatePicker fx:id="dobDate" maxWidth="1.7976931348623157E308" style="-fx-background-color: #00000000;" GridPane.rowIndex="8" />
+                              <JFXTextField fx:id="txtName" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Name" style="-fx-text-fill: white;">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></JFXTextField>
+                              <JFXTextField fx:id="txtMobile" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Mobile Number" style="-fx-text-fill: white;" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></JFXTextField>
+                              <JFXComboBox fx:id="cmdSex"   maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="115.0" promptText="Choose Yours" unFocusColor="#f7f7f7" GridPane.rowIndex="2" />
+                              <JFXTextField fx:id="txtAddressLine1" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Address Line 1" style="-fx-text-fill: white;" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></JFXTextField>
+                              <JFXTextField fx:id="txtAddressLine2" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Address Line 2" style="-fx-text-fill: white;" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></JFXTextField>
+                              <JFXTextField fx:id="txtCity" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="City" style="-fx-text-fill: white;" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></JFXTextField>
+                              <JFXTextField fx:id="txtDistrict" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="District" style="-fx-text-fill: white;" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></JFXTextField>
+                              <JFXTextField fx:id="txtPostalCode" alignment="CENTER" editable="false" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="194.0" promptText="Postal Code" style="-fx-text-fill: white;" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font></JFXTextField>
+                              <DatePicker fx:id="dobDate" editable="false" maxWidth="1.7976931348623157E308" style="-fx-background-color: #00000000;" GridPane.rowIndex="8" />
                            </children>
                         </GridPane>
-                        <JFXTextField fx:id="txtSerchInput" focusColor="WHITE" layoutX="20.0" layoutY="29.0" promptText="Search" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                        <JFXTextField fx:id="txtSerchInput" focusColor="WHITE" layoutX="20.0" layoutY="29.0" onAction="#txtSerchInputOnAction" promptText="Search" style="-fx-text-fill: white;" unFocusColor="WHITE">
                            <font>
                               <Font name="System Bold Italic" size="14.0" />
                            </font>

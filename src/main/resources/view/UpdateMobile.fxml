@@ -31,9 +31,15 @@
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="txtCurrentNumber" editable="false" focusColor="WHITE" layoutX="136.0" layoutY="82.0" promptText="Current Number" style="-fx-text-fill: white;" unFocusColor="WHITE" />
-                  <JFXTextField fx:id="txtNewNumber" focusColor="WHITE" layoutX="138.0" layoutY="123.0" promptText="New Number" style="-fx-text-fill: white;" unFocusColor="WHITE" />
-                  <JFXTextField fx:id="txtSerchInput" focusColor="WHITE" layoutX="16.0" layoutY="37.0" promptText="Search" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                  <JFXTextField fx:id="txtCurrentNumber" editable="false" focusColor="WHITE" layoutX="136.0" layoutY="82.0" promptText="Current Number" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></JFXTextField>
+                  <JFXTextField fx:id="txtNewNumber" focusColor="WHITE" layoutX="138.0" layoutY="123.0" promptText="New Number" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></JFXTextField>
+                  <JFXTextField fx:id="txtSerchInput" focusColor="WHITE" layoutX="16.0" layoutY="37.0" onAction="#txtSerchInputOnAction" promptText="Search" style="-fx-text-fill: white;" unFocusColor="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>

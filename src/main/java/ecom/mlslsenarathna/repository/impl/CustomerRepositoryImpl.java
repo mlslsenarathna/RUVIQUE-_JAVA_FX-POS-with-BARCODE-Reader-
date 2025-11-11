@@ -55,8 +55,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             CustomerEntity customerEntity = null;
             Transaction transaction = null;
 
-
-            try (Session session = new Configuration()
+        try (Session session = new Configuration()
                     .configure("hibernate.cfg.xml")
                     .buildSessionFactory()
                     .openSession()) {
@@ -122,6 +121,25 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void deleteCustomerById(CustomerEntity customerEntity) {
+        Transaction transaction = null;
+
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+            session.remove(customerEntity);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }
+
     }
 
 

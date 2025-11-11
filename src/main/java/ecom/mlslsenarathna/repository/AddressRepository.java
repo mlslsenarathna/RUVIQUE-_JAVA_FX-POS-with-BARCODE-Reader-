@@ -11,4 +11,7 @@ public interface AddressRepository {
     AddressEntity getAddressById(String addressId);
 
     void updateAddress(AddressEntity addressEntity);
+
+
+    void deleteAddressById(AddressEntity addressEntity);
 }

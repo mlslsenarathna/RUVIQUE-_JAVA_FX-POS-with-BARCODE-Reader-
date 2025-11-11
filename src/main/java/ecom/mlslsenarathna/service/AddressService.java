@@ -53,4 +53,7 @@ public class AddressService {
                 addressDTO.getPostalCode()
         ));
     }
+
+    public void deleteByAddressId(String addressId) {
+    }
 }
