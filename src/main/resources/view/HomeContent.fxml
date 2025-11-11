@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="666.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.HomeContentController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="147.8000244140625" minHeight="0.0" prefHeight="49.19999694824219" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="368.7999755859375" minHeight="10.0" prefHeight="313.1999877929687" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="86.80001220703127" minHeight="10.0" prefHeight="86.80001220703127" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <GridPane GridPane.rowIndex="1">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="271.5999755859375" minWidth="3.4000075340270968" prefWidth="3.4000075340270968" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="225.0" minWidth="6.0" prefWidth="182.00003662109376" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.79998779296875" minWidth="0.0" prefWidth="53.000036621093756" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.79998779296875" minWidth="6.0" prefWidth="187.2000244140625" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.79998779296875" minWidth="10.0" prefWidth="44.000030517578125" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="319.79998779296875" minWidth="10.0" prefWidth="194.39996948242185" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="290.4000305175781" minHeight="10.0" prefHeight="42.99998016357421" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="273.4000076293945" minHeight="10.0" prefHeight="264.60001983642576" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <FlowPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <Pane>
+                           <children>
+                              <Rectangle fx:id="cardOne" arcHeight="5.0" arcWidth="5.0" height="273.0" onMouseEntered="#onCardOneMouseEntered" onMouseExited="#onCardOneMouseExited" onZoomFinished="#onZoomOneFinished" onZoomStarted="#onZoomOneStart" stroke="BLACK" strokeType="INSIDE" width="186.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0" startY="0.32196969696969696">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.8105263113975525" green="0.6046926379203796" blue="0.08405458182096481" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.3822341857335127">
+                                             <color>
+                                                <Color red="0.8105263113975525" green="0.6046926379203796" blue="0.08405458182096481" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.8788694481830417">
+                                             <color>
+                                                <Color red="0.9157894849777222" green="0.7511734962463379" blue="0.21029239892959595" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.9157894849777222" green="0.7511734962463379" blue="0.21029239892959595" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Rectangle>
+                              <Label fx:id="lblCard1Header1" alignment="CENTER" layoutX="8.0" layoutY="24.0" prefHeight="26.0" prefWidth="174.0" text="Today Rates" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblCard1Header11" alignment="CENTER" layoutX="6.0" layoutY="102.0" prefHeight="26.0" prefWidth="174.0" text="Today Income" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblCard1Header12" alignment="CENTER" layoutX="8.0" layoutY="185.0" prefHeight="26.0" prefWidth="174.0" text="Today Profit" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTodayIncome" alignment="CENTER" layoutX="6.0" layoutY="137.0" prefHeight="26.0" prefWidth="174.0" text="RS.0000.00" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTodayProfit" alignment="CENTER" layoutX="8.0" layoutY="223.0" prefHeight="26.0" prefWidth="174.0" text="RS.0000.00" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </FlowPane>
+                  <FlowPane prefHeight="274.0" prefWidth="206.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <Pane>
+                           <children>
+                              <Rectangle fx:id="cardTwo" arcHeight="5.0" arcWidth="5.0" height="273.0" onZoomFinished="#onCardTwoZoomFinished" onZoomStarted="#onCardTwoZoomStarted" stroke="BLACK" strokeType="INSIDE" width="186.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0" startY="0.32196969696969696">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.8105263113975525" green="0.6046926379203796" blue="0.08405458182096481" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.3822341857335127">
+                                             <color>
+                                                <Color red="0.8105263113975525" green="0.6046926379203796" blue="0.08405458182096481" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.8788694481830417">
+                                             <color>
+                                                <Color red="0.9157894849777222" green="0.7511734962463379" blue="0.21029239892959595" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.9157894849777222" green="0.7511734962463379" blue="0.21029239892959595" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Rectangle>
+                              <Label fx:id="lblCard1Header" alignment="CENTER" layoutX="6.0" layoutY="28.0" prefHeight="26.0" prefWidth="174.0" text="Mothly Rates" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblCard1Header3" alignment="CENTER" layoutX="14.0" layoutY="101.0" onMouseEntered="#onCardTwoMouseEntered" onMouseExited="#onCardTwoMouseExited" prefHeight="26.0" prefWidth="174.0" text="Monthly Income" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblCard1Header31" alignment="CENTER" layoutX="14.0" layoutY="185.0" prefHeight="26.0" prefWidth="174.0" text="Monthly Profit" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblmonthlyIncome" alignment="CENTER" layoutX="6.0" layoutY="137.0" prefHeight="26.0" prefWidth="174.0" text="RS.0000.00" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblmonthlyProfit" alignment="CENTER" layoutX="14.0" layoutY="220.0" prefHeight="26.0" prefWidth="174.0" text="RS.0000.00" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </FlowPane>
+                  <FlowPane GridPane.columnIndex="5" GridPane.rowIndex="1">
+                     <children>
+                        <Pane>
+                           <children>
+                              <Rectangle fx:id="CardThree" arcHeight="5.0" arcWidth="5.0" height="273.0" onMouseEntered="#onCardThreeMouseEntered" onMouseExited="#onCardThreeMouseExited" onZoomFinished="#onZoomThreeFinished" onZoomStarted="#onZoomThreeStart" stroke="BLACK" strokeType="INSIDE" width="186.0">
+                                 <fill>
+                                    <LinearGradient endX="1.0" endY="1.0" startY="0.32196969696969696">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.8105263113975525" green="0.6046926379203796" blue="0.08405458182096481" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.3822341857335127">
+                                             <color>
+                                                <Color red="0.8105263113975525" green="0.6046926379203796" blue="0.08405458182096481" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.8788694481830417">
+                                             <color>
+                                                <Color red="0.9157894849777222" green="0.7511734962463379" blue="0.21029239892959595" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.9157894849777222" green="0.7511734962463379" blue="0.21029239892959595" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </fill>
+                              </Rectangle>
+                              <Label fx:id="lblCard1Header2" alignment="CENTER" layoutX="6.0" layoutY="25.0" prefHeight="26.0" prefWidth="174.0" text="Bussiness Analysis" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblCard1Header21" alignment="CENTER" layoutX="6.0" layoutY="188.0" prefHeight="26.0" prefWidth="174.0" text="Total Profit" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="lblTotalProfit" alignment="CENTER" layoutX="8.0" layoutY="234.0" prefHeight="26.0" prefWidth="174.0" text="Rs.0000.00" textFill="#efebeb">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </FlowPane>
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>

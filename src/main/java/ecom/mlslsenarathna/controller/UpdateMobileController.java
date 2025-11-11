@@ -36,15 +36,8 @@ public class UpdateMobileController {
 
     @FXML
     void btnBackOnAction(ActionEvent event) {
-        Stage stage= (Stage) btnBack.getScene().getWindow();
-
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/HomePageView.fxml"))));
-            stage.setMaximized(true);
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.close();
 
     }
 

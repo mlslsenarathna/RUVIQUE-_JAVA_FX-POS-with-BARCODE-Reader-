@@ -7,20 +7,17 @@ import ecom.mlslsenarathna.model.dto.AddressDTO;
 import ecom.mlslsenarathna.model.dto.CustomerDTO;
 import ecom.mlslsenarathna.service.AddressService;
 import ecom.mlslsenarathna.service.CustomerService;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import java.time.format.DateTimeFormatter;
 
 
 import java.io.IOException;
@@ -38,40 +35,13 @@ public class CustomerController implements Initializable {
     private JFXButton btnCancle;
 
     @FXML
-    private Button btnCustomer;
-
-    @FXML
     private JFXButton btnDeleteCustomer;
-
-    @FXML
-    private ImageView btnFacebook;
-
-    @FXML
-    private Button btnHome;
-
-    @FXML
-    private ImageView btnInster;
-
-    @FXML
-    private Button btnItems;
-
-    @FXML
-    private Button btnOrder;
 
     @FXML
     private JFXButton btnRegister;
 
     @FXML
     private JFXButton btnResetForm;
-
-    @FXML
-    private Button btnSettings;
-
-    @FXML
-    private Button btnSuppilers;
-
-    @FXML
-    private ImageView btnTiktok;
 
     @FXML
     private JFXButton btnUpdateAddress;
@@ -115,63 +85,6 @@ public class CustomerController implements Initializable {
     @FXML
     private JFXTextField txtPostalCode;
 
-    @FXML
-    void btnCancleOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnCustomerOnAction(ActionEvent event) {
-        Stage stage= (Stage) btnCustomer.getScene().getWindow();
-
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/CustomerManagement.fxml"))));
-            stage.setMaximized(true);
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
-    }
-
-    @FXML
-    void btnDeleteCustomerOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnFacebookOnAction(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnHomeOnAction(ActionEvent event) {
-        Stage stage= (Stage) btnHome.getScene().getWindow();
-
-        try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/HomePageView.fxml"))));
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    @FXML
-    void btnInsterOnAction(MouseEvent event) {
-
-    }
-
-    @FXML
-    void btnItemsOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnOrderOnAction(ActionEvent event) {
-
-    }
 
     @FXML
     void btnRegisterOnAction(ActionEvent event) {
@@ -207,46 +120,43 @@ public class CustomerController implements Initializable {
 
     }
 
-    @FXML
-    void btnSettingsOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnSuppilersOnAction(ActionEvent event) {
-
-    }
-
-    @FXML
-    void btnTiktokOnAction(MouseEvent event) {
-
-    }
 
     @FXML
     void btnUpdateAddressOnAction(ActionEvent event) {
-        Stage stage= (Stage) btnUpdateAddress.getScene().getWindow();
 
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UpdateAddress.fxml"))));
-            stage.setMaximized(true);
-            stage.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateAddress.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Update Address");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 
     @FXML
     void btnUpdateMobileNumberOnAction(ActionEvent event) {
-        Stage stage= (Stage) btnUpdateMobileNumber.getScene().getWindow();
 
         try {
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/UpdateMobile.fxml"))));
-            stage.setMaximized(true);
-            stage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateMobile.fxml"));
+            Parent root = loader.load();
 
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Update Mobile Number");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -254,124 +164,12 @@ public class CustomerController implements Initializable {
     void btnViewCustomersOnAction(ActionEvent event) {
 
     }
-    @FXML
-    void onEnteredCustomer(MouseEvent event) {
-        btnCustomer.setStyle("-fx-background-color: Gray; -fx-text-fill: Black;");
 
-    }
-
-    @FXML
-    void onEnteredHome(MouseEvent event) {
-        btnHome.setStyle("-fx-background-color: Gray; -fx-text-fill: Black;");
-
-
-    }
-
-    @FXML
-    void onEnteredItems(MouseEvent event) {
-        btnItems.setStyle("-fx-background-color: Gray; -fx-text-fill: Black;");
-
-    }
-
-    @FXML
-    void onEnteredOrder(MouseEvent event) {
-        btnOrder.setStyle("-fx-background-color: Gray; -fx-text-fill: Black;");
-
-    }
-
-    @FXML
-    void onEnteredSettings(MouseEvent event) {
-        btnSettings.setStyle("-fx-background-color: Gray; -fx-text-fill: Black;");
-
-
-
-    }
-
-    @FXML
-    void onEnteredSupplier(MouseEvent event) {
-        btnSuppilers.setStyle("-fx-background-color: Gray; -fx-text-fill: Black;");
-
-
-    }
-
-    @FXML
-    void onPressCustomer(MouseEvent event) {
-
-        btnCustomer.setStyle("-fx-background-color: #35363A; -fx-text-fill: #E3B853;");
-
-    }
-
-    @FXML
-    void onPressHome(MouseEvent event) {
-        btnHome.setStyle("-fx-background-color: #35363A; -fx-text-fill: #E3B853;");
-    }
-
-    @FXML
-    void onPressItems(MouseEvent event) {
-
-        btnItems.setStyle("-fx-background-color: #35363A; -fx-text-fill: #E3B853;");
-
-
-    }
-
-    @FXML
-    void onPressOrder(MouseEvent event) {
-        btnOrder.setStyle("-fx-background-color: #35363A; -fx-text-fill: #E3B853;");
-    }
-
-    @FXML
-    void onPressSettings(MouseEvent event) {
-
-        btnSettings.setStyle("-fx-background-color: #35363A; -fx-text-fill: #E3B853;");
-    }
-
-    @FXML
-    void onPressSupplier(MouseEvent event) {
-
-        btnSuppilers.setStyle("-fx-background-color: #35363A; -fx-text-fill: #E3B853;");
-
-
-    }
-
-    @FXML
-    void onReleaseCustomer(MouseEvent event) {
-        btnCustomer.setStyle("-fx-background-color: #35363A; -fx-text-fill: white;");
-
-    }
-
-    @FXML
-    void onReleaseHome(MouseEvent event) {
-        btnHome.setStyle("-fx-background-color: #35363A; -fx-text-fill: white;");
-
-    }
-
-    @FXML
-    void onReleaseItems(MouseEvent event) {
-        btnItems.setStyle("-fx-background-color: #35363A; -fx-text-fill: white;");
-
-    }
-
-    @FXML
-    void onReleaseOrder(MouseEvent event) {
-        btnOrder.setStyle("-fx-background-color: #35363A; -fx-text-fill: white;");
-
-    }
-
-    @FXML
-    void onReleaseSettings(MouseEvent event) {
-        btnSettings.setStyle("-fx-background-color: #35363A; -fx-text-fill: white;");
-
-    }
-
-    @FXML
-    void onReleaseSupplier(MouseEvent event) {
-        btnSuppilers.setStyle("-fx-background-color: #35363A; -fx-text-fill: white;");
-    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setSexComboBox();
-        setDateAndTime();
+
         lblCustomerId.setText(customerService.getCustomerID());
 
     }
@@ -380,19 +178,7 @@ public class CustomerController implements Initializable {
         cmdSex.getItems().addAll("Female","Male");
     }
 
-    private void setDateAndTime() {
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
 
-        Timeline clock = new Timeline(
-                new KeyFrame(javafx.util.Duration.seconds(1), e -> {
-                    String date = java.time.LocalDate.now().toString();
-                    String time = java.time.LocalTime.now().format(timeFormatter);
-                    lblDateTime.setText(date + "  " + time);
-                })
-        );
-        clock.setCycleCount(Timeline.INDEFINITE); // run forever
-        clock.play(); // start clock
-    }
     private  void resetForm(){
         lblCustomerId.setText(customerService.getCustomerID());
         txtName.setText(null);
@@ -406,4 +192,23 @@ public class CustomerController implements Initializable {
         dobDate.setValue(null);
     }
 
+    public void btnCancleOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnDeleteCustomerOnAction(ActionEvent actionEvent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DeleteCustomer.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Delete Customer");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
