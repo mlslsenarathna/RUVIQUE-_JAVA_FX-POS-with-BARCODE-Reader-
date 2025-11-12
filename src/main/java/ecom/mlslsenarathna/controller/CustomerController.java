@@ -162,7 +162,20 @@ public class CustomerController implements Initializable {
 
     @FXML
     void btnViewCustomersOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ViewCustomers.fxml"));
+            Parent root = loader.load();
 
+            Stage popupStage = new Stage();
+            popupStage.setTitle("View Customers");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

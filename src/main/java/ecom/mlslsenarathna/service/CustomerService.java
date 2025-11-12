@@ -2,12 +2,17 @@ package ecom.mlslsenarathna.service;
 
 import ecom.mlslsenarathna.model.dto.AddressDTO;
 import ecom.mlslsenarathna.model.dto.CustomerDTO;
+import ecom.mlslsenarathna.model.dto.ViewCustomerDTO;
 import ecom.mlslsenarathna.model.entity.AddressEntity;
 import ecom.mlslsenarathna.model.entity.CustomerEntity;
 import ecom.mlslsenarathna.repository.AddressRepository;
 import ecom.mlslsenarathna.repository.CustomerRepository;
 import ecom.mlslsenarathna.repository.impl.AddressRepositoryImpl;
 import ecom.mlslsenarathna.repository.impl.CustomerRepositoryImpl;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.util.List;
 
 public class CustomerService {
     CustomerRepository customerRepository=new CustomerRepositoryImpl();
@@ -116,5 +121,32 @@ public class CustomerService {
         AddressEntity addressEntity=addressRepository.getAddressById(customerEntity.getAddressId()) ;
         customerRepository.deleteCustomerById(customerEntity);
         addressRepository.deleteAddressById(addressEntity);
+    }
+
+    public List<ViewCustomerDTO> getCustomersList() {
+        List<CustomerEntity>  customerEntityList= customerRepository.getCustomersList();
+        ObservableList<ViewCustomerDTO> customers= FXCollections.observableArrayList();
+        for(CustomerEntity customerEntity:customerEntityList){
+           AddressEntity addressEntity= addressRepository.getAddressById(customerEntity.getAddressId());
+            System.out.println(addressEntity.toString());
+            customers.add(new ViewCustomerDTO(
+                    customerEntity.getCustName(),
+                    customerEntity.getCustMobile(),
+                    addressEntity.getAddressLine1()+" , "+addressEntity.getAdddressLine2()+" , "+addressEntity.getCity(),
+                    addressEntity.getPostalCode(),
+                    10000.00
+
+            ));
+        }
+        return customers;
+    }
+
+    public double getTotalCustomers() {
+        ObservableList<ViewCustomerDTO> customers =(ObservableList<ViewCustomerDTO>) getCustomersList();
+       double total=0;
+        for (ViewCustomerDTO viewCustomerDTO:customers){
+            total+=viewCustomerDTO.getTotalValue();
+        }
+        return total;
     }
 }

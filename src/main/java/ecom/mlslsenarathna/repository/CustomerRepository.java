@@ -2,6 +2,8 @@ package ecom.mlslsenarathna.repository;
 
 import ecom.mlslsenarathna.model.entity.CustomerEntity;
 
+import java.util.List;
+
 public interface CustomerRepository {
 
     void customerRegistration(CustomerEntity customerEntity);
@@ -14,4 +16,6 @@ public interface CustomerRepository {
     void updateCustomerByID(CustomerEntity customerEntity);
 
     void deleteCustomerById(CustomerEntity customerEntity);
+
+    List<CustomerEntity> getCustomersList();
 }

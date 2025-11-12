@@ -4,11 +4,14 @@ import ecom.mlslsenarathna.model.entity.AddressEntity;
 import ecom.mlslsenarathna.model.entity.CustomerEntity;
 import ecom.mlslsenarathna.repository.CustomerRepository;
 
+import javafx.collections.FXCollections;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class CustomerRepositoryImpl implements CustomerRepository {
     @Override
@@ -142,5 +145,29 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     }
 
+    @Override
+    public List<CustomerEntity> getCustomersList() {
+        Transaction transaction = null;
+        List<CustomerEntity> customers = null;
 
-}
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml") // load from resources
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+
+            Query<CustomerEntity> query = session.createQuery("FROM CustomerEntity", CustomerEntity.class);
+            customers = query.list();
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return customers;
+    }
+    }
+
+
+

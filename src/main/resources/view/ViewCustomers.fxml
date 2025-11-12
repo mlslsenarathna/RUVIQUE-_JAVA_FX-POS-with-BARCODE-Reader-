@@ -1,14 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ecom.mlslsenarathna.controller.ViewCustomersController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="1037.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.ViewCustomersController">
+   <center>
+      <GridPane BorderPane.alignment="CENTER">
+        <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="399.6000274658203" minHeight="10.0" prefHeight="49.6" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="517.599990081787" minHeight="1.1999725341797216" prefHeight="488.4000122070312" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="322.2000213623047" minHeight="10.0" prefHeight="61.19998779296873" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TableView fx:id="tblCustomeOverView" mouseTransparent="true" prefHeight="351.0" prefWidth="522.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" GridPane.rowIndex="1">
+               <columns>
+                  <TableColumn fx:id="colCustomerName" prefWidth="182.39999997615814" text="Name" />
+                  <TableColumn fx:id="colCustomerMobile" prefWidth="174.39996337890625" text="Mobile" />
+                  <TableColumn fx:id="colCustomerAddress" prefWidth="355.199951171875" text="Address" />
+                  <TableColumn fx:id="colCustomerPostalCode" minWidth="7.199951171875" prefWidth="108.800048828125" text="Postal Code" />
+                  <TableColumn fx:id="colCustomerTotalVlue" prefWidth="216.79986572265625" text="Total Value" />
+               </columns>
+            </TableView>
+            <FlowPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="40.0" prefWidth="472.0" style="-fx-font-size:28; -fx-font-weight:bold; -fx-text-fill: white;" text="Registered Customers OverView" />
+               </children>
+            </FlowPane>
+            <GridPane GridPane.rowIndex="2">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.19998168945312" minWidth="10.0" prefWidth="179.2" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="334.3999999999999" minWidth="10.0" prefWidth="334.3999999999999" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <JFXButton fx:id="btnBack" contentDisplay="CENTER" onAction="#btnBackOnAction" prefHeight="44.0" prefWidth="248.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-radius: 10; -fx-border-color: #E3B853; -fx-padding: 10; -fx-border-width: 2;" text="Back" GridPane.columnIndex="3">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.08344549125168237">
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.7658142664872138">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <Label alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="194.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: white;" text="Total Collection :" />
+                  <Label fx:id="lblTotalCollections" contentDisplay="CENTER" prefHeight="40.0" prefWidth="205.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: white;" text="0000000.00" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
