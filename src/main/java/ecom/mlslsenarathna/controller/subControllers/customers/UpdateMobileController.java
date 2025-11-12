@@ -1,4 +1,4 @@
-package ecom.mlslsenarathna.controller;
+package ecom.mlslsenarathna.controller.subControllers.customers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -6,12 +6,9 @@ import ecom.mlslsenarathna.model.dto.CustomerDTO;
 import ecom.mlslsenarathna.service.CustomerService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import java.io.IOException;
 
 public class UpdateMobileController {
     CustomerService customerService=new CustomerService();

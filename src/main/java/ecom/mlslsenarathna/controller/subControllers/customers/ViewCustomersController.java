@@ -1,11 +1,9 @@
-package ecom.mlslsenarathna.controller;
+package ecom.mlslsenarathna.controller.subControllers.customers;
 
 import com.jfoenix.controls.JFXButton;
-import ecom.mlslsenarathna.model.dto.CustomerDTO;
 import ecom.mlslsenarathna.model.dto.ViewCustomerDTO;
 import ecom.mlslsenarathna.service.AddressService;
 import ecom.mlslsenarathna.service.CustomerService;
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

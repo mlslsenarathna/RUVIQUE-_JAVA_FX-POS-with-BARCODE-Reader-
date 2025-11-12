@@ -125,7 +125,7 @@ public class CustomerController implements Initializable {
     void btnUpdateAddressOnAction(ActionEvent event) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateAddress.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/customer/UpdateAddress.fxml"));
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
@@ -144,7 +144,7 @@ public class CustomerController implements Initializable {
     void btnUpdateMobileNumberOnAction(ActionEvent event) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateMobile.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/customer/UpdateMobile.fxml"));
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
@@ -163,7 +163,7 @@ public class CustomerController implements Initializable {
     @FXML
     void btnViewCustomersOnAction(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ViewCustomers.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/customer/ViewCustomers.fxml"));
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
@@ -212,7 +212,7 @@ public class CustomerController implements Initializable {
 
     public void btnDeleteCustomerOnAction(ActionEvent actionEvent) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DeleteCustomer.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/customer/DeleteCustomer.fxml"));
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
