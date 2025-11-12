@@ -117,7 +117,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
             transaction = session.beginTransaction();
             session.merge(customerEntity);
             transaction.commit();
-            System.out.println("✅ Customer updated successfully: " + customerEntity);
+
 
 
         } catch (Exception e) {
@@ -167,6 +167,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
         return customers;
     }
+
     }
 
 

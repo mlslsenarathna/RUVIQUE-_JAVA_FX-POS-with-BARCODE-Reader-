@@ -2,11 +2,24 @@ package ecom.mlslsenarathna.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import ecom.mlslsenarathna.model.dto.ItemDTO;
+import ecom.mlslsenarathna.service.ItemService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
-public class ItemsManagementController {
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class ItemsManagementController implements Initializable {
+    ItemService itemService=new ItemService();
 
     @FXML
     private JFXButton btnAddItem;
@@ -67,6 +80,9 @@ public class ItemsManagementController {
 
     @FXML
     void btnAdditemOnAction(ActionEvent event) {
+       ItemDTO itemDTO=registerNewItem();
+       itemService.registerItem(itemDTO);
+
 
     }
 
@@ -97,11 +113,39 @@ public class ItemsManagementController {
 
     @FXML
     void btnUpdatePriceOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateItemPrice.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Update Price");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
     @FXML
     void btnUpdateStockonAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/UpdateStockCount.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Update Stock Count");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -109,5 +153,23 @@ public class ItemsManagementController {
     void btnViewItemsonAction(ActionEvent event) {
 
     }
+    private ItemDTO registerNewItem(){
+        return  new ItemDTO(
+                lblItemId.getText(),
+                txtItemName.getText(),
+                txtSupplierId.getText(),
+                txtDescription.getText(),
+                txtColor.getText(),
+                txtSize.getText(),
+                Integer.parseInt(txtStockCount.getText()),
+                txtManufactureCountry.getText(),
+                Double.parseDouble(txtSuppilerPrice.getText()),
+                Double.parseDouble(txtSellingPrice.getText())
+        );
+    }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblItemId.setText(itemService.setNewItemId());
+    }
 }

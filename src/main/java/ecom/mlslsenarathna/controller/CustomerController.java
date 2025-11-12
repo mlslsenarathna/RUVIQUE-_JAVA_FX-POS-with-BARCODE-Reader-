@@ -61,8 +61,7 @@ public class CustomerController implements Initializable {
     @FXML
     private Label lblCustomerId;
 
-    @FXML
-    private Label lblDateTime;
+
 
     @FXML
     private JFXTextField txtAddressLine1;
@@ -182,7 +181,6 @@ public class CustomerController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setSexComboBox();
-
         lblCustomerId.setText(customerService.getCustomerID());
 
     }

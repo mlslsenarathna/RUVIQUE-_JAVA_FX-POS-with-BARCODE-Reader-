@@ -1,6 +1,7 @@
 package ecom.mlslsenarathna.model.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
 
@@ -12,12 +13,13 @@ import lombok.*;
 @Entity
 @Table(name = "item")
 public class ItemEntity {
+    @Id
     private String itemId;
     private String itemName;
     private String supplierId;
     private String description;
     private String color;
-    private double size;
+    private String size;
     private int stockCount;
     private String manufactureCountry;
     private double supplierPrice;

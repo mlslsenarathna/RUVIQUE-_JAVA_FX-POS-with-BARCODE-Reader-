@@ -13,7 +13,7 @@ public class ItemDTO {
     private String supplierId;
     private String description;
     private String color;
-    private double size;
+    private String size;
     private int stockCount;
     private String manufactureCountry;
     private double supplierPrice;

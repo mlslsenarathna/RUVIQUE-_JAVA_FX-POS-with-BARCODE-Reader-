@@ -16,9 +16,9 @@ public class AddressRepositoryImpl implements AddressRepository {
             AddressEntity lastAddress = null;
             Transaction transaction = null;
 
-            // ✅ Create SessionFactory using Hibernate’s built-in Configuration API
+
             try (Session session = new Configuration()
-                    .configure("hibernate.cfg.xml") // loads from resources
+                    .configure("hibernate.cfg.xml")
                     .buildSessionFactory()
                     .openSession()) {
 
