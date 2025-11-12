@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="1037.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.ViewCustomersController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="1037.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.customer.ViewCustomersController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>

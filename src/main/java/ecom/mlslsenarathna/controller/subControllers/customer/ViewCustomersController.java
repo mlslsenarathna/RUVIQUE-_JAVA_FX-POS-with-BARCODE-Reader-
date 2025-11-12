@@ -1,4 +1,4 @@
-package ecom.mlslsenarathna.controller;
+package ecom.mlslsenarathna.controller.subControllers.customer;
 
 import com.jfoenix.controls.JFXButton;
 import ecom.mlslsenarathna.model.dto.CustomerDTO;

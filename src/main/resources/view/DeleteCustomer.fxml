@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="582.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.DeleteCustomerController">
+<AnchorPane prefHeight="582.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.customer.DeleteCustomerController">
    <children>
       <Pane prefHeight="582.0" prefWidth="482.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>

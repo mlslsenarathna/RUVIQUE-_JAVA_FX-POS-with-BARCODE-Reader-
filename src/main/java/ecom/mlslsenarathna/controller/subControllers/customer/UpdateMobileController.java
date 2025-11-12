@@ -1,4 +1,4 @@
-package ecom.mlslsenarathna.controller;
+package ecom.mlslsenarathna.controller.subControllers.customer;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
