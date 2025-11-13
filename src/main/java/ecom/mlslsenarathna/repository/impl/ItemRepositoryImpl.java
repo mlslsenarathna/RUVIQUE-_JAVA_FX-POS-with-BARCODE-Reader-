@@ -109,5 +109,24 @@ public class ItemRepositoryImpl implements ItemRepository {
         }
     }
 
+    @Override
+    public void deleteById(ItemEntity itemEntity) {
+        Transaction transaction = null;
+
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+            session.remove(itemEntity);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }
+
+    }
+
 
 }

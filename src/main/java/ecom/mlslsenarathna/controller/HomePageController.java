@@ -169,6 +169,7 @@ public class HomePageController implements Initializable {
             e.printStackTrace();
 
         }
+
     }
 
     @FXML

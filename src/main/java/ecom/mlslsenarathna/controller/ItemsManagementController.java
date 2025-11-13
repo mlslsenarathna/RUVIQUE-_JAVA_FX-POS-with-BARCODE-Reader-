@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import ecom.mlslsenarathna.model.dto.ItemDTO;
 import ecom.mlslsenarathna.service.ItemService;
+import ecom.mlslsenarathna.service.SupplierService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,11 +15,13 @@ import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ItemsManagementController implements Initializable {
+    SupplierService supplierService=new SupplierService();
     ItemService itemService=new ItemService();
 
     @FXML
@@ -80,11 +83,18 @@ public class ItemsManagementController implements Initializable {
 
     @FXML
     void btnAdditemOnAction(ActionEvent event) {
-       ItemDTO itemDTO=registerNewItem();
-       itemService.registerItem(itemDTO);
+        if(supplierService.isSupplierId(txtSupplierId.getText())) {
+            ItemDTO itemDTO = registerNewItem();
+            itemService.registerItem(itemDTO);
 
+        }else{
+            JOptionPane.showMessageDialog(null,"Check supplier ID");
+        }
 
     }
+
+
+
 
     @FXML
     void btnBarcodegeneratoronAction(ActionEvent event) {
@@ -98,6 +108,20 @@ public class ItemsManagementController implements Initializable {
 
     @FXML
     void btnDeleteItemonAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DeleteItem.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Update Price");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -108,7 +132,16 @@ public class ItemsManagementController implements Initializable {
 
     @FXML
     void btnResetFormOnAction(ActionEvent event) {
-
+        txtColor.setText(null);
+        txtDescription.setText(null);
+        txtItemName.setText(null);
+        txtSize.setText(null);
+        txtManufactureCountry.setText(null);
+        txtSellingPrice.setText(null);
+        txtSupplierId.setText(null);
+        txtSellingPrice.setText(null);
+        txtStockCount.setText(null);
+        txtSuppilerPrice.setText(null);
     }
 
     @FXML

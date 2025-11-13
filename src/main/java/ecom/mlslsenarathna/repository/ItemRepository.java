@@ -10,4 +10,6 @@ public interface ItemRepository {
     ItemEntity getItemByID(String text);
 
     void updateItemById(ItemEntity itemEntity);
+
+    void deleteById(ItemEntity itemEntity);
 }

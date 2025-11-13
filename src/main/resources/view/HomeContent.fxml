@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="666.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.HomeContentController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="518.0" prefWidth="666.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.HomeContentController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -21,8 +21,8 @@
         </columnConstraints>
         <rowConstraints>
           <RowConstraints maxHeight="147.8000244140625" minHeight="0.0" prefHeight="49.19999694824219" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="368.7999755859375" minHeight="10.0" prefHeight="313.1999877929687" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="86.80001220703127" minHeight="10.0" prefHeight="86.80001220703127" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="368.7999755859375" minHeight="10.0" prefHeight="286.8000122070313" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="147.9999877929688" minHeight="10.0" prefHeight="147.9999877929688" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
             <GridPane GridPane.rowIndex="1">
@@ -212,6 +212,53 @@
                         </Pane>
                      </children>
                   </FlowPane>
+               </children>
+            </GridPane>
+            <GridPane GridPane.rowIndex="2">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="216.39996337890625" minWidth="10.0" prefWidth="101.19995880126953" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="377.2000045776367" minWidth="10.0" prefWidth="342.80004119873047" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="44.60001220703125" minHeight="10.0" prefHeight="19.80002632141113" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="92.80003662109375" minHeight="10.0" prefHeight="92.80003662109375" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="33.79996337890624" minHeight="10.0" prefHeight="25.79996337890624" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Rectangle fx:id="cardAlert" arcHeight="5.0" arcWidth="5.0" height="87.0" onMouseEntered="#onCardAlertMouseEntered" onMouseExited="#onCardAlertMouseExited" onZoomFinished="#onZoomAlertFinished" onZoomStarted="#onZoomAlertStart" stroke="BLACK" strokeType="INSIDE" width="372.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <fill>
+                        <LinearGradient endX="1.0" endY="1.0" startY="0.32196969696969696">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.8105263113975525" green="0.6046926379203796" blue="0.08405458182096481" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.3822341857335127">
+                                 <color>
+                                    <Color red="0.8105263113975525" green="0.6046926379203796" blue="0.08405458182096481" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.8788694481830417">
+                                 <color>
+                                    <Color red="0.9157894849777222" green="0.7511734962463379" blue="0.21029239892959595" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.9157894849777222" green="0.7511734962463379" blue="0.21029239892959595" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </fill>
+                  </Rectangle>
+                  <Label fx:id="lblCard1Header13" alignment="CENTER" prefHeight="26.0" prefWidth="90.0" text="Alerts :" textFill="#efebeb" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>

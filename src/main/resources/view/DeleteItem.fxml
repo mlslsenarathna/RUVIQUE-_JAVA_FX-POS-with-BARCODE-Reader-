@@ -11,138 +11,179 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="283.0" prefWidth="363.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.items.UpdateItemStockCountController">
+
+<AnchorPane prefHeight="301.0" prefWidth="861.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.items.DeleteItemController">
    <children>
-      <Label layoutX="55.0" layoutY="96.0" prefHeight="134.0" prefWidth="211.0" style="-fx-text-fill: rgba(255,255,255,0.1); -fx-font-size: 70; -fx-font-family: 'Brush Script MT';" text="Ruvique" />
-      <BorderPane prefHeight="254.0" prefWidth="787.0" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-153.0" AnchorPane.topAnchor="0.0">
+      <Label layoutX="65.0" layoutY="58.0" prefHeight="235.0" prefWidth="759.0" style="-fx-text-fill: rgba(255,255,255,0.1); -fx-font-size: 175; -fx-font-family: 'Brush Script MT'; -fx-alignment: center;" text="Ruvique" />
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="254.0" prefWidth="787.0">
          <top>
-            <Label prefHeight="40.0" prefWidth="208.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Update Item Stock" BorderPane.alignment="CENTER" />
+            <Label prefHeight="40.0" prefWidth="182.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Delete Item" BorderPane.alignment="CENTER" />
          </top>
-         <center>
-            <Pane prefHeight="253.0" prefWidth="379.0" BorderPane.alignment="CENTER">
+         <left>
+            <Pane prefHeight="214.0" prefWidth="850.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="49.0" layoutY="146.0" text="New Stock" textFill="WHITE">
+                  <Label layoutX="76.0" layoutY="87.0" text="Item Name" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="39.0" layoutY="87.0" text="Current Stock" textFill="WHITE">
+                  <JFXTextField fx:id="txtSupplierID" alignment="CENTER" focusColor="WHITE" layoutX="212.0" layoutY="123.0" prefHeight="30.0" prefWidth="78.0" promptText="Suppiler Id" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXTextField fx:id="txtSerchInput" alignment="CENTER" focusColor="WHITE" layoutX="28.0" layoutY="37.0" onAction="#txtSerchInputOnAction" promptText="Search" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <JFXButton fx:id="btnSearch" layoutX="205.0" layoutY="37.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Search">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.08344549125168237">
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.7658142664872138">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="36.0" layoutY="6.0" text="Search By Item Id" textFill="#f2f2f2" />
+                  <JFXButton fx:id="btnDelete" layoutX="240.0" layoutY="209.0" onAction="#btnDeleteOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Delete">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.08344549125168237">
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.7658142664872138">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBack" layoutX="384.0" layoutY="209.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Back">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.08344549125168237">
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.7658142664872138">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <Label layoutX="216.0" layoutY="87.0" text="Supplier Id" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Label>
-                  <JFXTextField fx:id="txtNewStock" alignment="CENTER" focusColor="WHITE" layoutX="168.0" layoutY="131.0" prefHeight="30.0" prefWidth="159.0" promptText="New Stock" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                  <JFXTextField fx:id="txtItemName" alignment="CENTER" focusColor="WHITE" layoutX="36.0" layoutY="123.0" prefHeight="30.0" prefWidth="154.0" promptText="Item Name" style="-fx-text-fill: white;" unFocusColor="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXTextField>
-                  <JFXTextField fx:id="txtSerchInput" focusColor="WHITE" layoutX="16.0" layoutY="37.0" onAction="#txtSerchInputOnAction" promptText="Search" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                  <JFXTextField fx:id="txtManufacturePrice" alignment="CENTER" focusColor="WHITE" layoutX="519.0" layoutY="123.0" prefHeight="30.0" prefWidth="147.0" promptText="Manufacture Country" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXTextField>
+                  <Label layoutX="321.0" layoutY="87.0" text="Stock Count" textFill="WHITE">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
+                  </Label>
+                  <JFXTextField fx:id="txtColor" alignment="CENTER" focusColor="WHITE" layoutX="424.0" layoutY="123.0" prefHeight="30.0" prefWidth="78.0" promptText="Color" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
                   </JFXTextField>
-                  <JFXButton fx:id="btnSearch" layoutX="168.0" layoutY="32.0" onAction="#btnSearchOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Search">
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.08344549125168237">
-                                 <color>
-                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.7658142664872138">
-                                 <color>
-                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
+                  <Label layoutX="445.0" layoutY="87.0" text="Color" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="txtStockCount" alignment="CENTER" focusColor="WHITE" layoutX="321.0" layoutY="123.0" prefHeight="30.0" prefWidth="78.0" promptText="Stock Count" style="-fx-text-fill: white;" unFocusColor="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
-                  </JFXButton>
-                  <Label layoutX="20.0" layoutY="6.0" text="Search By Item Id" textFill="#f2f2f2" />
-                  <JFXButton fx:id="btnUpdate" layoutX="37.0" layoutY="202.0" onAction="#btnUpdateOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Update">
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.08344549125168237">
-                                 <color>
-                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.7658142664872138">
-                                 <color>
-                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
+                  </JFXTextField>
+                  <Label layoutX="519.0" layoutY="87.0" text=" manufacture Country" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold Italic" size="14.0" />
                      </font>
-                  </JFXButton>
-                  <JFXButton fx:id="btnBack" layoutX="168.0" layoutY="202.0" onAction="#btnBackOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Back">
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.08344549125168237">
-                                 <color>
-                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="0.7658142664872138">
-                                 <color>
-                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
+                  </Label>
+                  <Label layoutX="689.0" layoutY="87.0" text="Supplier Price" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold Italic" size="14.0" />
                      </font>
-                  </JFXButton>
-                  <JFXTextField fx:id="txtOldStock" alignment="CENTER" editable="false" focusColor="WHITE" layoutX="168.0" layoutY="82.0" prefHeight="30.0" prefWidth="154.0" promptText="Current Stock" style="-fx-text-fill: white;" unFocusColor="WHITE">
+                  </Label>
+                  <JFXTextField fx:id="txtSupplierPrice" alignment="CENTER" focusColor="WHITE" layoutX="680.0" layoutY="123.0" prefHeight="30.0" prefWidth="115.0" promptText="Supplier Price" style="-fx-text-fill: white;" unFocusColor="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXTextField>
                </children>
             </Pane>
-         </center>
+         </left>
       </BorderPane>
    </children>
 </AnchorPane>

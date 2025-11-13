@@ -5,7 +5,7 @@ import ecom.mlslsenarathna.model.entity.ItemEntity;
 import ecom.mlslsenarathna.repository.ItemRepository;
 import ecom.mlslsenarathna.repository.impl.ItemRepositoryImpl;
 
-import java.util.Locale;
+
 
 public class ItemService {
     ItemRepository itemRepository=new ItemRepositoryImpl();
@@ -72,5 +72,32 @@ public class ItemService {
                         itemDTO.getSupplierPrice(),
                         itemDTO.getSellingPrice()
                 ));
+    }
+    public boolean isItemId(String input) {
+        if(input.matches("^I\\d{4}$")){
+            return true;
+
+        }else if(input.matches("^i\\d{4}$")){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+
+
+    public void deleteItemById(ItemDTO itemDTO) {
+        itemRepository.deleteById(new ItemEntity(
+                itemDTO.getItemId(),
+                itemDTO.getItemName(),
+                itemDTO.getSupplierId(),
+                itemDTO.getDescription(),
+                itemDTO.getColor(),
+                itemDTO.getSize(),
+                itemDTO.getStockCount(),
+                itemDTO.getManufactureCountry(),
+                itemDTO.getSupplierPrice(),
+                itemDTO.getSellingPrice()
+        ));
     }
 }

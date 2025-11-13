@@ -43,11 +43,6 @@ public class CustomerService {
         return "C001";
     }
 
-    public void checkSearchInputUpdateNumber(String input) {
-        if(isCustomerId(input)){
-
-        }
-    }
 
     public boolean isCustomerId(String input) {
         return input != null && input.matches("^C\\d{3}$");

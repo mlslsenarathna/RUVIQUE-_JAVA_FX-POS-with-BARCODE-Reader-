@@ -45,7 +45,7 @@ public class UpdateItemStockCountController {
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
         ItemDTO itemDTO=itemService.searchItemByID(txtSerchInput.getText());
-        itemDTO.setStockCount(Integer.parseInt(txtNewStock.getText()));
+        itemDTO.setStockCount(Integer.parseInt(txtNewStock.getText())+itemDTO.getStockCount());
         itemService.updateItemById(itemDTO);
         resetForm();
     }

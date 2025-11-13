@@ -22,6 +22,8 @@ public class HomeContentController implements Initializable {
 
     @FXML
     private Rectangle cardTwo;
+    @FXML
+    private Rectangle cardAlert;
 
     @FXML
     private Label lblCard1Header;
@@ -91,6 +93,15 @@ public class HomeContentController implements Initializable {
     void onCardThreeMouseExited(MouseEvent event) {
         zoomCard(CardThree, 1.0);
     }
+    @FXML
+    void onCardAlertMouseEntered(MouseEvent event) {
+        zoomCard(cardAlert, 1.1);
+    }
+
+    @FXML
+    void onCardAlertMouseExited(MouseEvent event) {
+        zoomCard(cardAlert, 1.0);
+    }
 
     @FXML
     void onCardTwoZoomFinished(ZoomEvent event) {
@@ -110,6 +121,13 @@ public class HomeContentController implements Initializable {
 
     @FXML
     void onZoomThreeFinished(ZoomEvent event) {
+    }
+    @FXML
+    void onZoomAlertStart(ZoomEvent event) {
+    }
+
+    @FXML
+    void onZoomAlertFinished(ZoomEvent event) {
     }
 
     @FXML
