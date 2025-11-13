@@ -98,6 +98,20 @@ public class ItemsManagementController implements Initializable {
 
     @FXML
     void btnBarcodegeneratoronAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ItemBarCodeGenerator.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("BarCode Generator");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -113,7 +127,7 @@ public class ItemsManagementController implements Initializable {
             Parent root = loader.load();
 
             Stage popupStage = new Stage();
-            popupStage.setTitle("Update Price");
+            popupStage.setTitle("Delete Item");
             popupStage.setScene(new Scene(root));
             popupStage.initModality(Modality.APPLICATION_MODAL);
             popupStage.setResizable(false);
@@ -199,6 +213,20 @@ public class ItemsManagementController implements Initializable {
 
     @FXML
     void btnViewItemsonAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/ViewItems.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Veiw Items");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
     private ItemDTO registerNewItem(){
