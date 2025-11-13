@@ -26,7 +26,7 @@
             <RowConstraints maxHeight="322.2000213623047" minHeight="10.0" prefHeight="61.19998779296873" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView fx:id="tblCustomeOverView" mouseTransparent="true" prefHeight="351.0" prefWidth="522.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" GridPane.rowIndex="1">
+            <TableView fx:id="tblCustomeOverView" mouseTransparent="true" prefHeight="351.0" prefWidth="522.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" styleClass="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" GridPane.rowIndex="1">
                <columns>
                   <TableColumn fx:id="colCustomerName" prefWidth="182.39999997615814" text="Name" />
                   <TableColumn fx:id="colCustomerMobile" prefWidth="174.39996337890625" text="Mobile" />

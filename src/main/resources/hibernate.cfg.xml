@@ -20,6 +20,7 @@
         <mapping class="ecom.mlslsenarathna.model.entity.AddressEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.CustomerEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.ItemEntity"/>
+        <mapping class="ecom.mlslsenarathna.model.entity.SupplierEntity"/>
 
 
 

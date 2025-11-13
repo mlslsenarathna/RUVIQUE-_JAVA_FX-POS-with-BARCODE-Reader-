@@ -514,7 +514,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </JFXButton>
-                              <JFXButton fx:id="btnViewItems" contentDisplay="CENTER" onAction="#btnViewItemsonAction" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="Viw Items" GridPane.rowIndex="8">
+                              <JFXButton fx:id="btnViewItems" contentDisplay="CENTER" onAction="#btnViewItemsonAction" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="Veiw Items" GridPane.rowIndex="8">
                                  <textFill>
                                     <LinearGradient endX="1.0" endY="1.0">
                                        <stops>

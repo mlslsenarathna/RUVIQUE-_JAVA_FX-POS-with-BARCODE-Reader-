@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 
 public class ViewCustomersController implements Initializable {
     CustomerService customerService=new CustomerService();
-    AddressService addressService=new AddressService();
+
 
     @FXML
     private JFXButton btnBack;

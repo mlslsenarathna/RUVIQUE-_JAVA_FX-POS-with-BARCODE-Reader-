@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import java.util.List;
+
 public class ItemRepositoryImpl implements ItemRepository {
     @Override
     public ItemEntity getLastItem() {
@@ -128,5 +130,29 @@ public class ItemRepositoryImpl implements ItemRepository {
 
     }
 
+    @Override
+    public List<ItemEntity> getItemsList() {
+        Transaction transaction = null;
+        List<ItemEntity> items = null;
 
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml") // load from resources
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+
+            Query<ItemEntity> query = session.createQuery("FROM ItemEntity", ItemEntity.class);
+            items = query.list();
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return items;
+    }
 }
+
+
+
