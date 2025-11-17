@@ -110,7 +110,7 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#btnSuppilersOnAction" onMouseClicked="#onPressSettings" onMouseEntered="#onEnteredSettings" onMouseExited="#onReleaseSettings" onMouseReleased="#onReleaseSettings" prefHeight="43.0" prefWidth="198.0" style="-fx-background-color: #35363a;" styleClass=".button {    -fx-background-color: black;    -fx-text-fill: white;}.button:pressed {    -fx-text-fill: yellow;}" text="Settings" textFill="WHITE" GridPane.rowIndex="12">
+                        <Button fx:id="btnSettings" mnemonicParsing="false" onAction="#btnSettingsOnAction" onMouseClicked="#onPressSettings" onMouseEntered="#onEnteredSettings" onMouseExited="#onReleaseSettings" onMouseReleased="#onReleaseSettings" prefHeight="43.0" prefWidth="198.0" style="-fx-background-color: #35363a;" styleClass=".button {    -fx-background-color: black;    -fx-text-fill: white;}.button:pressed {    -fx-text-fill: yellow;}" text="Settings" textFill="WHITE" GridPane.rowIndex="12">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>

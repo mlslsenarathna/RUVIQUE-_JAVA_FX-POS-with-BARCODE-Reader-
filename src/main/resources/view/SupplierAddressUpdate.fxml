@@ -14,12 +14,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="540.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.customer.UpdateAddressController">
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.supplier.SupplierUpdateAddressController">
    <children>
-      <Label layoutX="65.0" layoutY="58.0" prefHeight="262.0" prefWidth="473.0" style="-fx-text-fill: rgba(255,255,255,0.1); -fx-font-size: 155; -fx-font-family: 'Brush Script MT';" text="Ruvique" />
-      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="390.0" prefWidth="590.0">
+      <Label alignment="CENTER" prefHeight="360.0" prefWidth="576.0" style="-fx-text-fill: rgba(255,255,255,0.1); -fx-font-size: 155; -fx-font-family: 'Brush Script MT';" text="Ruvique" />
+      <BorderPane prefHeight="390.0" prefWidth="590.0">
          <top>
-            <Label prefHeight="40.0" prefWidth="182.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Update Customer Address" BorderPane.alignment="CENTER" />
+            <Label prefHeight="40.0" prefWidth="182.0" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: white;" text="Update Supplier Address" BorderPane.alignment="CENTER" />
          </top>
          <center>
             <Pane prefHeight="350.0" prefWidth="540.0" BorderPane.alignment="CENTER">
@@ -60,7 +61,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <Label layoutX="20.0" layoutY="6.0" text="Customer Id Or Current Mobile Number" textFill="#f2f2f2" />
+                  <Label layoutX="20.0" layoutY="6.0" text="Supplier Id Or Email" textFill="#f2f2f2" />
                   <JFXButton fx:id="btnSet" layoutX="20.0" layoutY="306.0" onAction="#btnSetOnAction" prefHeight="25.0" prefWidth="92.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Set">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">

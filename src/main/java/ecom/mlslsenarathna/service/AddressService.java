@@ -20,7 +20,6 @@ public class AddressService {
     }
     public String getAddressId(){
         AddressEntity addressEntity=addressRepository.getLastAddressId();
-        System.out.println(addressRepository.getLastAddressId());
         if(addressRepository.getLastAddressId().getAddressId()!=null){
             String lastId= String.valueOf(addressRepository.getLastAddressId().getAddressId());
             lastId = lastId.split("[A-Z]")[1];
@@ -55,5 +54,20 @@ public class AddressService {
     }
 
     public void deleteByAddressId(String addressId) {
+    }
+    public AddressEntity getLastAddress(){
+      return   addressRepository.getLastAddressId();
+    }
+    public String getLastAddressID(){
+        String lastID=getLastAddress().getAddressId();
+        if(getLastAddress().getAddressId()!=null){
+            String lastId= String.valueOf(getLastAddress().getAddressId());
+            lastId = lastId.split("[A-Z]")[1];
+            lastId= String.format("A%03d",(Integer.parseInt(lastId)+1));
+            return lastId;
+
+        }
+        return "A001";
+
     }
 }
