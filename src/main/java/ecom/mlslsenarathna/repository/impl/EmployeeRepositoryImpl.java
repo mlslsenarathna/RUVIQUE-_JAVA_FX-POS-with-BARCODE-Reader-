@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import java.util.List;
+
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
 
@@ -82,4 +84,28 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
         return emp;
     }
+
+    @Override
+    public List<EmployeeEntity> getAllEmployees() {
+        Transaction transaction = null;
+        List<EmployeeEntity> employees = null;
+
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml") // load from resources
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+
+            Query<EmployeeEntity> query = session.createQuery("FROM EmployeeEntity", EmployeeEntity.class);
+            employees = query.list();
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return employees;
+    }
+
 }

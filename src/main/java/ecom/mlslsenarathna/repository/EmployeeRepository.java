@@ -2,6 +2,8 @@ package ecom.mlslsenarathna.repository;
 
 import ecom.mlslsenarathna.model.entity.EmployeeEntity;
 
+import java.util.List;
+
 public interface EmployeeRepository {
     EmployeeEntity getLastEmployee();
 
@@ -10,6 +12,7 @@ public interface EmployeeRepository {
 
     EmployeeEntity getEmplyeeByNic(String nic);
 
-    interface AttendenceRepository {
-    }
+    List<EmployeeEntity> getAllEmployees();
+
+
 }

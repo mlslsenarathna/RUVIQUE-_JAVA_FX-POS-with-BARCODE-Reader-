@@ -342,7 +342,7 @@
                         <RowConstraints maxHeight="172.60001220703126" minHeight="10.0" prefHeight="38.60001220703123" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <JFXButton fx:id="btnUpdateRegistrationNo" contentDisplay="CENTER" onAction="#btnUpdateRegistrationNoOnAction" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="Update Registration  No">
+                        <JFXButton fx:id="btnUpdateAddress" contentDisplay="CENTER" onAction="#btnUpdateAddressOnAction" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="Update Address">
                            <textFill>
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>

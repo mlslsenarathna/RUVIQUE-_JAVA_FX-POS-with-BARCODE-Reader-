@@ -13,7 +13,6 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="543.0" prefWidth="922.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.employee.EmployeeAttendenceController">
    <center>
       <GridPane prefHeight="575.0" prefWidth="922.0" BorderPane.alignment="CENTER">
@@ -286,7 +285,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXButton fx:id="btnFingerPrintRegister" contentDisplay="CENTER" onAction="#btnFingerPrintRegister" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="OverVeiw" GridPane.columnIndex="1">
+                  <JFXButton fx:id="btnFingerPrintRegister" contentDisplay="CENTER" onAction="#btnFingerPrintRegister" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="FingerPrint Register" GridPane.columnIndex="1">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -317,7 +316,38 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="btnFingerPrintRegister1" contentDisplay="CENTER" onAction="#btnFingerPrintRegister" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="up Comming" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <JFXButton fx:id="btnFingerPrintRegister1" contentDisplay="CENTER" onAction="#upComming" prefHeight="44.0" prefWidth="211.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="up Comming" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.08344549125168237">
+                                 <color>
+                                    <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.7658142664872138">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnOverVeiw" contentDisplay="CENTER" onAction="#btnOverVeiwOnAcrion" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-width: 2; -fx-border-color: #E3B853; -fx-border-radius: 10; -fx-padding: 10;" text="OverVeiw" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>

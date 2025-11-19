@@ -9,8 +9,14 @@ import ecom.mlslsenarathna.service.EmployeeService;
 import ecom.mlslsenarathna.service.SupplierService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -30,6 +36,9 @@ public class EmployeeAttendenceController {
 
     @FXML
     private JFXButton btnEmployeeTimeOn;
+
+  @FXML
+  private JFXButton   btnOverVeiw;
 
     @FXML
     private JFXButton btnFingerPrintRegister;
@@ -63,6 +72,7 @@ public class EmployeeAttendenceController {
     void btnEmployeeTimeOffOnAction(ActionEvent event) {
 
       AttendenceDTO attendenceDTO=attendenceService.getnewAttendence(txtEmployeeNic.getText());
+      System.out.println(attendenceDTO.toString());
       attendenceDTO.setStop(LocalTime.now());
       attendenceService.setOnRecorde(attendenceDTO);
     }
@@ -70,7 +80,7 @@ public class EmployeeAttendenceController {
     @FXML
     void btnEmployeeTimeOnAction(ActionEvent event) {
         AttendenceDTO attendenceDTO=new AttendenceDTO(
-                attendenceService.getnewAttendenceId(),
+                attendenceService.getNewAttendenceID(),
                 txtEmployeeNic.getText(),
                 LocalDate.now(),
                 LocalTime.now(),
@@ -91,6 +101,30 @@ public class EmployeeAttendenceController {
 
     }
 
+  @FXML
+  void btnOverVeiwOnAcrion(ActionEvent event) {
+    try {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/EmployeeAttendenceOverView.fxml"));
+      Parent root = loader.load();
+
+      Stage popupStage = new Stage();
+      popupStage.setTitle("Attendence Overview");
+      popupStage.setScene(new Scene(root));
+      popupStage.initModality(Modality.APPLICATION_MODAL);
+      popupStage.setResizable(false);
+      popupStage.showAndWait();
+
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+  }
+  @FXML
+  void upComming(ActionEvent event) {
+
+  }
+
     @FXML
     void btnResetFormOnAction(ActionEvent event) {
 
@@ -105,7 +139,7 @@ public class EmployeeAttendenceController {
 
     private void checkEmployee() {
         String nic=txtEmployeeNic.getText();
-        EmployeeDTO employeeDTO=employeeService.searchBySupplierNic(nic);
+        EmployeeDTO employeeDTO=employeeService.searchByEmployerNic(nic);
         txtEmployeeName.setText(employeeDTO.getEmplyeeName());
 
     }

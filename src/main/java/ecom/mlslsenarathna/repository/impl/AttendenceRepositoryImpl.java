@@ -49,7 +49,7 @@ public class AttendenceRepositoryImpl implements AttendenceRepository {
     @Override
     public List<AttendenceEntity> getAllAttendence() {
         Transaction transaction = null;
-        List<AttendenceEntity> attendence = null;
+        List<AttendenceEntity> attendenceEntities = null;
 
         try (Session session = new Configuration()
                 .configure("hibernate.cfg.xml") // load from resources
@@ -58,15 +58,15 @@ public class AttendenceRepositoryImpl implements AttendenceRepository {
 
             transaction = session.beginTransaction();
 
-            Query<AttendenceEntity> query = session.createQuery("FROM AttendenceEntity", AttendenceEntity.class);
-            attendence = query.list();
+            Query<AttendenceEntity> query = session.createQuery("FROM attendence", AttendenceEntity.class);
+            attendenceEntities = query.list();
 
             transaction.commit();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return attendence;
+        return attendenceEntities;
     }
 
     @Override

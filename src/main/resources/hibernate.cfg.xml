@@ -20,10 +20,11 @@
         <mapping class="ecom.mlslsenarathna.model.entity.AddressEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.CustomerEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.ItemEntity"/>
+        <mapping class="ecom.mlslsenarathna.model.entity.AttendenceEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.SupplierEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.EmployeeEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.EmployeeFingerPrintEntity"/>
-        <mapping class="ecom.mlslsenarathna.model.entity.AttendenceEntity"/>
+
 
 
 

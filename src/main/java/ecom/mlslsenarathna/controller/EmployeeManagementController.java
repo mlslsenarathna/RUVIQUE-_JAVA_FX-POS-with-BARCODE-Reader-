@@ -48,7 +48,7 @@ public class EmployeeManagementController implements Initializable {
     private JFXButton btnResetForm;
 
     @FXML
-    private JFXButton btnUpdateRegistrationNo;
+    private JFXButton btnUpdateAddress;
 
     @FXML
     private JFXButton btnsalaryManagement;
@@ -217,7 +217,7 @@ public class EmployeeManagementController implements Initializable {
 
 
     @FXML
-    void btnUpdateRegistrationNoOnAction(ActionEvent event) {
+    void btnUpdateAddressOnAction(ActionEvent event) {
 
     }
 
