@@ -1,16 +1,22 @@
 package ecom.mlslsenarathna.repository.impl;
 
-import ecom.mlslsenarathna.model.entity.AddressEntity;
-import ecom.mlslsenarathna.model.entity.ItemEntity;
+
+import ecom.mlslsenarathna.model.entity.CustomerEntity;
 import ecom.mlslsenarathna.model.entity.SupplierEntity;
 import ecom.mlslsenarathna.repository.SupplierRepository;
+import javafx.collections.ObservableList;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
+import java.util.List;
+
 public class SupplierRepositoryImpl implements SupplierRepository {
+
+
+
     @Override
     public SupplierEntity getSupplierByID(String id) {
         SupplierEntity supplierEntity = null;
@@ -117,4 +123,30 @@ public class SupplierRepositoryImpl implements SupplierRepository {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public List<SupplierEntity> getAllSuppliers() {
+        Transaction transaction = null;
+        List<SupplierEntity> suppliers = null;
+
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml") // load from resources
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+
+            Query<SupplierEntity> query = session.createQuery("FROM SupplierEntity", SupplierEntity.class);
+            suppliers = query.list();
+
+            transaction.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return suppliers;
+
+    }
+
+
 }

@@ -1,11 +1,17 @@
 package ecom.mlslsenarathna.service;
 
 import ecom.mlslsenarathna.model.dto.SupplierDTO;
+import ecom.mlslsenarathna.model.dto.SupplierVeiwDTO;
+import ecom.mlslsenarathna.model.entity.AddressEntity;
 import ecom.mlslsenarathna.model.entity.SupplierEntity;
 import ecom.mlslsenarathna.repository.AddressRepository;
 import ecom.mlslsenarathna.repository.SupplierRepository;
 import ecom.mlslsenarathna.repository.impl.AddressRepositoryImpl;
 import ecom.mlslsenarathna.repository.impl.SupplierRepositoryImpl;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
+import java.util.List;
 
 public class SupplierService {
     SupplierRepository supplierRepository=new SupplierRepositoryImpl();
@@ -88,5 +94,24 @@ public class SupplierService {
                 supplierDTO.getSupplierCompanyRegistrationNo(),
                 supplierDTO.getAddressId()
         ));
+    }
+
+    public ObservableList<SupplierVeiwDTO> getAllSuppliers() {
+       List<SupplierEntity> supplierEntities=supplierRepository.getAllSuppliers();
+       ObservableList<SupplierVeiwDTO> supplierVeiwDTOS= FXCollections.observableArrayList();
+       for(SupplierEntity supplierEntity:supplierEntities){
+           AddressEntity addressEntity=addressRepository.getAddressById(supplierEntity.getAddressId());
+           supplierVeiwDTOS.add(
+                   new SupplierVeiwDTO(
+                           supplierEntity.getSupplierName(),
+                           supplierEntity.getSupplierContactNo(),
+                           addressEntity.getAddressLine1()+" , "+addressEntity.getAdddressLine2()+" , "+addressEntity.getCity()+" , "+addressEntity.getDistrict(),
+                           supplierEntity.getSupplierEmail(),
+                           supplierEntity.getSupplierCountry()
+                   ));
+       }
+
+        return supplierVeiwDTOS;
+
     }
 }
