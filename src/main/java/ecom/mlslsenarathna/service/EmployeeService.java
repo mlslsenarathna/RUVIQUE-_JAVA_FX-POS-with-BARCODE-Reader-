@@ -5,6 +5,8 @@ import ecom.mlslsenarathna.model.entity.EmployeeEntity;
 import ecom.mlslsenarathna.repository.EmployeeRepository;
 import ecom.mlslsenarathna.repository.impl.EmployeeRepositoryImpl;
 
+import javax.swing.*;
+
 public class EmployeeService {
     EmployeeRepository employeeRepository=new EmployeeRepositoryImpl();
     AddressService addressService=new AddressService();
@@ -36,6 +38,24 @@ public class EmployeeService {
                 employeeDTO.getAddressId()
 
         ));
+    }
+
+
+
+    public EmployeeDTO searchBySupplierNic(String nic) {
+
+        EmployeeEntity employeeEntity=employeeRepository.getEmplyeeByNic(nic);
+
+            return new EmployeeDTO(
+                    employeeEntity.getEmployeeId(),
+                    employeeEntity.getEmplyeeName(),
+                    employeeEntity.getContactNo(),
+                    employeeEntity.getNationalId(),
+                    employeeEntity.getAddressId()
+            );
+
+
+
     }
 }
 

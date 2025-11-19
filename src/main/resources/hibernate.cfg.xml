@@ -23,6 +23,7 @@
         <mapping class="ecom.mlslsenarathna.model.entity.SupplierEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.EmployeeEntity"/>
         <mapping class="ecom.mlslsenarathna.model.entity.EmployeeFingerPrintEntity"/>
+        <mapping class="ecom.mlslsenarathna.model.entity.AttendenceEntity"/>
 
 
 

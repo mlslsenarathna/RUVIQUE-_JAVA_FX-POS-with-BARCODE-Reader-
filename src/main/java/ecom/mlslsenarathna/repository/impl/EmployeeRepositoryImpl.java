@@ -1,5 +1,6 @@
 package ecom.mlslsenarathna.repository.impl;
 
+import ecom.mlslsenarathna.controller.HibernateUtil;
 import ecom.mlslsenarathna.model.entity.CustomerEntity;
 import ecom.mlslsenarathna.model.entity.EmployeeEntity;
 import ecom.mlslsenarathna.repository.EmployeeRepository;
@@ -9,8 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-public class EmployeeRepositoryImpl implements EmployeeRepository {
 
+public class EmployeeRepositoryImpl implements EmployeeRepository {
 
     @Override
     public EmployeeEntity getLastEmployee() {
@@ -51,5 +52,34 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
         session.merge(employeeEntity);
         transaction.commit();
 
+    }
+
+    @Override
+    public EmployeeEntity getEmplyeeByNic(String nic) {
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        Session session = sessionFactory.openSession();
+
+        EmployeeEntity emp = null;
+
+        try {
+            session.beginTransaction();
+
+            String hql = "FROM EmployeeEntity e WHERE e.nationalId = :nic";
+            Query<EmployeeEntity> query = session.createQuery(hql, EmployeeEntity.class);
+            query.setParameter("nic", nic);
+
+            emp = query.uniqueResult();
+
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+
+        return emp;
     }
 }

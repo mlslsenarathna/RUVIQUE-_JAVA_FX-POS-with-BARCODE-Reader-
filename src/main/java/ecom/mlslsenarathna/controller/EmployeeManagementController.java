@@ -9,10 +9,16 @@ import ecom.mlslsenarathna.service.AddressService;
 import ecom.mlslsenarathna.service.EmployeeService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import javax.swing.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -76,6 +82,27 @@ public class EmployeeManagementController implements Initializable {
 
     @FXML
     void btnAttendenceSheetOnAction(ActionEvent event) {
+        JOptionPane.showMessageDialog(null,"FingerPrint take..!");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/EmployeeAttendenceMark.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Attendence ");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+
+        lblEmployeeId.setText(employeeService.getLastEmployeeID());
+
+
 
     }
 
@@ -96,6 +123,21 @@ public class EmployeeManagementController implements Initializable {
 
     @FXML
     void btnFingerPrintRegister(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FingerPrintTakeInput.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Scannner ");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
     }
 
@@ -129,9 +171,22 @@ public class EmployeeManagementController implements Initializable {
         employeeService.registerEmploye(employeeDTO);
 
         JOptionPane.showMessageDialog(null,"FingerPrint take..!");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/FingerPrintTakeInput.fxml"));
+            Parent root = loader.load();
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Scannner ");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
-        try
 
         lblEmployeeId.setText(employeeService.getLastEmployeeID());
 

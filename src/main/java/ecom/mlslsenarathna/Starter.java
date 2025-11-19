@@ -14,6 +14,7 @@ public class Starter extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/HomePageView.fxml"))));
+       // stage.setFullScreen(true);
         stage.show();
     }
 }

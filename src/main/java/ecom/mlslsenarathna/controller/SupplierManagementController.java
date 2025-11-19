@@ -250,6 +250,7 @@ public class SupplierManagementController implements Initializable {
             popupStage.setResizable(false);
             popupStage.showAndWait();
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }

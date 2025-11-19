@@ -7,4 +7,9 @@ public interface EmployeeRepository {
 
     void registerEmployee(EmployeeEntity employeeEntity);
 
+
+    EmployeeEntity getEmplyeeByNic(String nic);
+
+    interface AttendenceRepository {
+    }
 }
