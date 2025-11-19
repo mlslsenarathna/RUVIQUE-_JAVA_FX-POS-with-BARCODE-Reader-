@@ -13,18 +13,17 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="822.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.EmployeeManagementController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="822.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.EmployeeManagementController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.4000244140625" minWidth="10.0" prefWidth="43.19999771118165" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="668.8000244140625" minWidth="10.0" prefWidth="522.2" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.2000122070312" minWidth="10.0" prefWidth="247.79999999999995" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="668.8000244140625" minWidth="10.0" prefWidth="516.0000122070312" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="519.2000122070312" minWidth="10.0" prefWidth="260.79998779296875" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints maxHeight="128.60001220703126" minHeight="3.0000091433525142" prefHeight="52.40000190734863" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="558.5999572753906" minHeight="10.0" prefHeight="517.1999980926514" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="128.60001220703126" minHeight="3.0000091433525142" prefHeight="89.8" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="558.5999572753906" minHeight="10.0" prefHeight="490.59999999999997" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="516.0000053405762" minHeight="10.0" prefHeight="61.00004272460933" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="76.60001220703128" minHeight="0.0" prefHeight="12.000012207031205" vgrow="SOMETIMES" />
         </rowConstraints>
@@ -162,11 +161,6 @@
                   </Pane>
                </children>
             </GridPane>
-            <Label alignment="CENTER" prefHeight="84.0" prefWidth="670.0" text="Employee management" textFill="WHITE" GridPane.columnIndex="1">
-               <font>
-                  <Font name="System Bold Italic" size="30.0" />
-               </font>
-            </Label>
             <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -208,7 +202,7 @@
                               <RowConstraints maxHeight="407.4000274658203" minHeight="10.0" prefHeight="30.80003662109374" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="210.0" text="Employee Name" textFill="#efebeb" GridPane.rowIndex="1">
+                              <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="210.0" text="Employee Name(Full Name)" textFill="#efebeb" GridPane.rowIndex="1">
                                  <font>
                                     <Font name="System Bold" size="15.0" />
                                  </font>
@@ -536,6 +530,43 @@
                         </JFXButton>
                      </children>
                   </GridPane>
+               </children>
+            </GridPane>
+            <GridPane prefHeight="94.0" prefWidth="473.0" GridPane.columnIndex="1">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.4000183105469" minWidth="10.0" prefWidth="434.4000183105469" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="46.4" minHeight="10.0" prefHeight="45.599996948242186" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="47.20000305175781" minHeight="10.0" prefHeight="47.20000305175781" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <GridPane GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="213.20001220703125" minWidth="10.0" prefWidth="176.4000244140625" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="259.5999755859375" minWidth="10.0" prefWidth="259.5999755859375" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="22.0" prefWidth="210.0" text="Employee ID :" textFill="#efebeb">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblEmployeeId" prefHeight="27.0" prefWidth="134.0" text="Employee ID" textFill="#efebeb" GridPane.columnIndex="1">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <Label alignment="CENTER" prefHeight="46.0" prefWidth="471.0" text="Employee management" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
                </children>
             </GridPane>
          </children>

@@ -9,6 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class EmployeeDTO {
+    private String employeeId;
     private String emplyeeName;
     private String contactNo;
     private String nationalId;

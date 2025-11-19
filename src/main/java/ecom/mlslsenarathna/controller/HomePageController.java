@@ -130,6 +130,17 @@ public class HomePageController implements Initializable {
 
     @FXML
     void btlEmployeesOnAction(ActionEvent event) {
+        try {
+            Parent customerContent = FXMLLoader.load(
+                    getClass().getResource("/view/EmployeeManagement.fxml")
+            );
+
+            HomePageViewBoarderPane.setCenter(customerContent);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
 
     }
     @FXML
