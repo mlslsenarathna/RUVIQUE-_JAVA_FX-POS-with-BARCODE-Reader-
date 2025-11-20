@@ -14,5 +14,7 @@ public interface EmployeeRepository {
 
     List<EmployeeEntity> getAllEmployees();
 
+    void deleteEmployee(EmployeeEntity employeeEntity);
+
 
 }

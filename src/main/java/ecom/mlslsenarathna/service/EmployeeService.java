@@ -1,6 +1,9 @@
 package ecom.mlslsenarathna.service;
 
+import ecom.mlslsenarathna.model.dto.AddressDTO;
 import ecom.mlslsenarathna.model.dto.EmployeeDTO;
+import ecom.mlslsenarathna.model.dto.EmployeeVeiwDTO;
+import ecom.mlslsenarathna.model.entity.AddressEntity;
 import ecom.mlslsenarathna.model.entity.EmployeeEntity;
 import ecom.mlslsenarathna.repository.EmployeeRepository;
 import ecom.mlslsenarathna.repository.impl.EmployeeRepositoryImpl;
@@ -13,6 +16,7 @@ import java.util.List;
 
 public class EmployeeService {
     EmployeeRepository employeeRepository=new EmployeeRepositoryImpl();
+    AddressService addressService=new AddressService();
 
     public String getLastEmployeeID(){
        EmployeeEntity employeeEntity= employeeRepository.getLastEmployee();
@@ -70,6 +74,33 @@ public class EmployeeService {
 
        }
        return  employeeDTOS;
+    }
+
+    public ObservableList<EmployeeVeiwDTO> getAllEmployeeViewDetails() {
+        List<EmployeeEntity> employeeEntityList=employeeRepository.getAllEmployees();
+        ObservableList<EmployeeVeiwDTO> employeeVeiwDTOS=FXCollections.observableArrayList();
+
+        for (EmployeeEntity employeeEntity:employeeEntityList){
+            AddressDTO addressDTO =addressService.getAddressById(employeeEntity.getAddressId());
+            employeeVeiwDTOS.add(
+                    new EmployeeVeiwDTO(
+                            employeeEntity.getEmplyeeName(),
+                            employeeEntity.getContactNo(),
+                           addressDTO.getAddressLine1()+" , "+addressDTO.getAdddressLine2()+" , "+addressDTO.getCity()+" , "+addressDTO.getDistrict(),
+                            employeeEntity.getNationalId()
+                    )
+            );
+        }
+        return employeeVeiwDTOS;
+    }
+    public void deleteEmployee(EmployeeDTO employeeDTO){
+        employeeRepository.deleteEmployee(new EmployeeEntity(
+                employeeDTO.getEmployeeId(),
+                employeeDTO.getEmplyeeName(),
+                employeeDTO.getContactNo(),
+                employeeDTO.getNationalId(),
+                employeeDTO.getAddressId()
+        ));
     }
 }
 

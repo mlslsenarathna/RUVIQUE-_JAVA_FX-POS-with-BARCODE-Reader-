@@ -107,5 +107,21 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
 
         return employees;
     }
+    public void deleteEmployee(EmployeeEntity employeeEntity){
+        Transaction transaction = null;
+
+        try (Session session = new Configuration()
+                .configure("hibernate.cfg.xml")
+                .buildSessionFactory()
+                .openSession()) {
+
+            transaction = session.beginTransaction();
+            session.remove(employeeEntity);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        }
+    }
 
 }

@@ -113,12 +113,38 @@ public class EmployeeManagementController implements Initializable {
 
     @FXML
     void btnDeleteEmployeeOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/DeleteEmployee.fxml"));
+            Parent root = loader.load();
 
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Employees Deletion ");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void btnEmployeeVeiwOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/EmployeesVeiw.fxml"));
+            Parent root = loader.load();
 
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Employees View ");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
@@ -218,7 +244,20 @@ public class EmployeeManagementController implements Initializable {
 
     @FXML
     void btnUpdateAddressOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/EmployeeAddressUpdate.fxml"));
+            Parent root = loader.load();
 
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Update Address");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

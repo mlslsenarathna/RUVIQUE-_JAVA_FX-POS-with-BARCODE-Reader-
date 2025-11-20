@@ -9,7 +9,7 @@ import ecom.mlslsenarathna.service.EmployeeService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class EmployeeAddressUpdateController {
+public class EmployeeDeleteController {
     EmployeeService employeeService=new EmployeeService();
     AddressService addressService=new AddressService();
 
@@ -17,25 +17,22 @@ public class EmployeeAddressUpdateController {
     private JFXButton btnBack;
 
     @FXML
+    private JFXButton btnDelete;
+
+    @FXML
     private JFXButton btnSearch;
 
     @FXML
-    private JFXButton btnSet;
+    private JFXTextField txtAddress;
 
     @FXML
-    private JFXTextField txtAddressLine1;
+    private JFXTextField txtContact;
 
     @FXML
-    private JFXTextField txtAddressLine2;
+    private JFXTextField txtName;
 
     @FXML
-    private JFXTextField txtCity;
-
-    @FXML
-    private JFXTextField txtDistrict;
-
-    @FXML
-    private JFXTextField txtPostalCode;
+    private JFXTextField txtNic;
 
     @FXML
     private JFXTextField txtSerchInput;
@@ -46,46 +43,33 @@ public class EmployeeAddressUpdateController {
     }
 
     @FXML
+    void btnDeleteOnAction(ActionEvent event) {
+        EmployeeDTO employeeDTO=employeeService.searchByEmployerNic(txtSerchInput.getText());
+        AddressDTO addressDTO=addressService.getAddressById(employeeDTO.getAddressId());
+        employeeService.deleteEmployee(employeeDTO);
+        addressService.deleteByAddressId(employeeDTO.getAddressId());
+
+    }
+
+    @FXML
     void btnSearchOnAction(ActionEvent event) {
         EmployeeDTO employeeDTO=employeeService.searchByEmployerNic(txtSerchInput.getText());
         AddressDTO addressDTO=addressService.getAddressById(employeeDTO.getAddressId());
-        setAddress(addressDTO);
-
+        setDetails(employeeDTO,addressDTO);
     }
 
-    private void setAddress(AddressDTO addressDTO) {
-        txtAddressLine1.setText(addressDTO.getAddressLine1());
-        txtAddressLine2.setText(addressDTO.getAdddressLine2());
-        txtCity.setText(addressDTO.getCity());
-        txtDistrict.setText(addressDTO.getDistrict());
-        txtPostalCode.setText(addressDTO.getPostalCode());
-
-
-    }
-
-
-    @FXML
-    void btnSetOnAction(ActionEvent event) {
-        EmployeeDTO employeeDTO=employeeService.searchByEmployerNic(txtSerchInput.getText());
-        AddressDTO addressDTO=addressService.getAddressById(employeeDTO.getAddressId());
-        setNewAddress(addressDTO);
+    private void setDetails(EmployeeDTO employeeDTO, AddressDTO addressDTO) {
+        txtName.setText(employeeDTO.getEmplyeeName());
+        txtAddress.setText(addressDTO.getAddressLine1()+","+addressDTO.getAdddressLine2()+","+addressDTO.getCity());
+        txtContact.setText(employeeDTO.getContactNo());
+        txtNic.setText(employeeDTO.getNationalId());
     }
 
     @FXML
     void txtSerchInputOnAction(ActionEvent event) {
         EmployeeDTO employeeDTO=employeeService.searchByEmployerNic(txtSerchInput.getText());
         AddressDTO addressDTO=addressService.getAddressById(employeeDTO.getAddressId());
-        setAddress(addressDTO);
-    }
-
-    private void setNewAddress(AddressDTO addressDTO) {
-    addressDTO.setAddressLine1(txtAddressLine1.getText());
-    addressDTO.setAdddressLine2(txtAddressLine2.getText());
-    addressDTO.setCity(txtCity.getText());
-    addressDTO.setDistrict(txtDistrict.getText());
-    addressDTO.setPostalCode(txtPostalCode.getText());
-    addressService.updateAddress(addressDTO);
-
+        setDetails(employeeDTO,addressDTO);
     }
 
 }
