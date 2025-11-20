@@ -7,19 +7,12 @@ import java.time.temporal.ChronoUnit;
 public class WorkingTimeCalculatorService {
 
 
-    public Long getMinuts(LocalTime startTime, LocalTime endTime) {
-        long rawMinutes = ChronoUnit.MINUTES.between(startTime, endTime);
-
-
-        return rawMinutes;
-    }
-
     public double getHours(LocalTime startTime, LocalTime endTime) {
-        double hours=ChronoUnit.HOURS.between(startTime, endTime);
-        return hours;
+        double hours=ChronoUnit.MINUTES.between(startTime, endTime);
+        return hours/60;
     }
     public  double getDays(double hours) {
-        double days=hours/24;
+        double days=hours/9;
         return days;
     }
 

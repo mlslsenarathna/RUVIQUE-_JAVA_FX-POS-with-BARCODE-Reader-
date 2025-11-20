@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="630.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.employee.EmployeeAttendenceOverViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="756.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.employee.EmployeeAttendenceOverViewController">
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -29,62 +29,92 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TableView fx:id="tblAttendence" mouseTransparent="true" prefHeight="267.0" prefWidth="1001.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" styleClass="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <columns>
-                  <TableColumn fx:id="colName" prefWidth="224.0000457763672" text="Name" />
-                  <TableColumn fx:id="colNIC" prefWidth="119.199951171875" text="NIC" />
-                  <TableColumn fx:id="colWorkingHours" prefWidth="142.39996337890625" text="Working Hourse Count" />
-                  <TableColumn fx:id="colWorkingDays" minWidth="7.199951171875" prefWidth="134.4000244140625" text="Working days" />
-               </columns>
-            </TableView>
             <FlowPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <GridPane prefHeight="30.0" prefWidth="551.0">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.19998168945312" minWidth="10.0" prefWidth="179.2" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="451.9999755859374" minWidth="10.0" prefWidth="442.3999999999999" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.800048828125" minWidth="0.0" prefWidth="0.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
+                  <GridPane prefHeight="91.0" prefWidth="754.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
                      <children>
-                        <JFXButton fx:id="btnBack" contentDisplay="CENTER" onAction="#btnBackOnAction" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-radius: 10; -fx-border-color: #E3B853; -fx-padding: 10; -fx-border-width: 2;" text="Back" GridPane.columnIndex="1">
-                           <textFill>
-                              <LinearGradient endX="1.0" endY="1.0">
-                                 <stops>
-                                    <Stop>
-                                       <color>
-                                          <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="0.08344549125168237">
-                                       <color>
-                                          <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="0.7658142664872138">
-                                       <color>
-                                          <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
-                                       </color>
-                                    </Stop>
-                                    <Stop offset="1.0">
-                                       <color>
-                                          <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
-                                       </color>
-                                    </Stop>
-                                 </stops>
-                              </LinearGradient>
-                           </textFill>
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </JFXButton>
+                        <GridPane prefHeight="30.0" prefWidth="551.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.19998168945312" minWidth="10.0" prefWidth="179.2" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="451.9999755859374" minWidth="10.0" prefWidth="442.3999999999999" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="130.800048828125" minWidth="0.0" prefWidth="0.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                           <children>
+                              <JFXButton fx:id="btnBack" contentDisplay="CENTER" onAction="#btnBackOnAction" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-radius: 10; -fx-border-color: #E3B853; -fx-padding: 10; -fx-border-width: 2;" text="Back" GridPane.columnIndex="1">
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.08344549125168237">
+                                             <color>
+                                                <Color red="0.7894737124443054" green="0.7017543911933899" blue="0.7017543911933899" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="0.7658142664872138">
+                                             <color>
+                                                <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.8062689900398254" green="0.8842105269432068" blue="0.10479532182216644" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </GridPane>
                      </children>
                   </GridPane>
                </children>
             </FlowPane>
             <Label prefHeight="40.0" prefWidth="472.0" style="-fx-font-size:28; -fx-font-weight:bold; -fx-text-fill: white;" text="Attendence OverVeiw" GridPane.columnIndex="1" />
+            <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="204.20001220703125" minWidth="10.0" prefWidth="33.59998779296875" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="684.0000080108642" minWidth="10.0" prefWidth="673.6000122070312" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="147.59997558593756" minWidth="0.0" prefWidth="0.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Pane GridPane.columnIndex="1">
+                     <children>
+                        <TableView fx:id="tblAttendence" cache="true" prefHeight="258.0" prefWidth="686.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" styleClass="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);">
+                           <columns>
+                              <TableColumn fx:id="colName" prefWidth="224.0000457763672" text="Name" />
+                              <TableColumn fx:id="colNIC" prefWidth="143.20001220703125" text="NIC" />
+                              <TableColumn fx:id="colWorkingHours" prefWidth="168.0" text="Working Hourse Count" />
+                              <TableColumn fx:id="colWorkingDays" minWidth="7.199951171875" prefWidth="148.79998779296875" text="Working days" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
          </children>
       </GridPane>
    </center>

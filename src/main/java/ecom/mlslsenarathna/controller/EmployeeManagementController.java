@@ -223,7 +223,20 @@ public class EmployeeManagementController implements Initializable {
 
     @FXML
     void btnsalaryManagementOnAction(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/EmployeeSalaryManagement.fxml"));
+            Parent root = loader.load();
 
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Salary manager ");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

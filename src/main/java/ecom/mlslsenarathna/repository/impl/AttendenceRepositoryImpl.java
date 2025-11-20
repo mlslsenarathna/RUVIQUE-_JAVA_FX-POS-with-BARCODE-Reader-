@@ -21,28 +21,44 @@ public class AttendenceRepositoryImpl implements AttendenceRepository {
     public AttendenceEntity getLastAttendence(){
         AttendenceEntity attendenceEntity = null;
         Transaction transaction = null;
+        Session session = null;
 
+        try {
 
-        try (Session session = new Configuration()
-                .configure("hibernate.cfg.xml")
-                .buildSessionFactory()
-                .openSession()) {
+            session = new Configuration()
+                    .configure("hibernate.cfg.xml")
+                    .buildSessionFactory()
+                    .openSession();
 
             transaction = session.beginTransaction();
 
-            String hql = "FROM AttendenceEntity a ORDER BY a.att DESC";
+            String hql = "FROM attendence a ORDER BY a.attendenceId DESC";
             Query<AttendenceEntity> query = session.createQuery(hql, AttendenceEntity.class);
             query.setMaxResults(1);
 
-           attendenceEntity = query.uniqueResult();
+            attendenceEntity = query.uniqueResult();
 
             transaction.commit();
 
         } catch (Exception e) {
-            if (transaction != null) transaction.rollback();
+
+            if (transaction != null && transaction.isActive()) {
+                try {
+                    transaction.rollback();
+                } catch (Exception rollbackException) {
+
+                }
+            }
             e.printStackTrace();
+
+        } finally {
+
+            if (session != null) {
+                session.close();
+            }
         }
-        System.out.println(attendenceEntity);
+
+        System.out.println("dd0"+attendenceEntity);
         return attendenceEntity;
     }
 

@@ -12,6 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.List;
 
 public class AttendenceService {
@@ -69,6 +70,7 @@ public class AttendenceService {
     }
     public String getLastID(){
         AttendenceEntity attendenceEntity=attendenceRepository.getLastAttendence();
+        System.out.println(attendenceEntity.getAttendenceId());
         return attendenceEntity.getAttendenceId();
     }
     public  String getNewAttendenceID(){
@@ -119,6 +121,8 @@ public class AttendenceService {
              days+=workingTimeCalculatorService.getDays(dayhour);
          }
         }
+        System.out.println("Hours"+hours);
+        System.out.println("Days"+days);
         attedensVeiwDTOS.add(
                 new AttedensVeiwDTO(
                         employeeDTO.getEmplyeeName(),
@@ -149,5 +153,56 @@ public class AttendenceService {
         return attendenceDTOS;
     }
 
+    public  ObservableList<AttendenceDTO> getAttendenceInmonthly(){
+        ObservableList<AttendenceDTO> attendenceDTOS= getAttendenceDTOS();
+        ObservableList<AttendenceDTO> attendenceDTOMonthly=FXCollections.observableArrayList();
+        YearMonth currentYearMonth = YearMonth.now();
+
+        for(AttendenceDTO attendenceDTO:attendenceDTOS){
+            if(YearMonth.from(attendenceDTO.getDate()).equals(currentYearMonth)){
+                attendenceDTOMonthly.add(attendenceDTO);
+            }
+
+        }
+        return attendenceDTOMonthly;
+
+    }
+    public ObservableList<AttendenceDTO> getAttendenceByNationaId(String nationalId){
+        ObservableList<AttendenceDTO> attendenceDTOMonthly= getAttendenceInmonthly();
+        ObservableList<AttendenceDTO> listByID= FXCollections.observableArrayList();
+
+        for (AttendenceDTO attendenceDTO : attendenceDTOMonthly) {
+            if(attendenceDTO.getEmplyeeNIC().equalsIgnoreCase(nationalId)){
+                listByID.add(attendenceDTO);
+
+            }
+
+        }
+        return  listByID;
+
+    }
+
+    public AttedensVeiwDTO getAttendenceInfo(ObservableList<AttendenceDTO> attendenceDTOS) {
+
+            double hours = 0;
+            double days = 0;
+        AttedensVeiwDTO attedensVeiwDTO=new AttedensVeiwDTO();
+            for (AttendenceDTO attedensDTO : attendenceDTOS) {
+                    double dayhour = workingTimeCalculatorService.getHours(attedensDTO.getStart(), attedensDTO.getStop());
+                attedensVeiwDTO.setNic(attedensDTO.getEmplyeeNIC());
+                attedensVeiwDTO.setName(null);
+                System.out.println("in"+dayhour);
+                    hours += dayhour;
+                    days += workingTimeCalculatorService.getDays(dayhour);
+
+            }
+            System.out.println("Hours" + hours);
+            System.out.println("Days" + days);
+
+        attedensVeiwDTO.setHours(hours);
+        attedensVeiwDTO.setDays(days);
+
+        return attedensVeiwDTO;
+    }
 }
 
