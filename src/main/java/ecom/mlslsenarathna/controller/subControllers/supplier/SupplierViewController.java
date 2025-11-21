@@ -14,14 +14,21 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
+
 public class SupplierViewController implements Initializable {
     SupplierService supplierService=new SupplierService();
+
+
 
     @FXML
     private JFXButton btnBack;
 
     @FXML
     private TableColumn<?, ?> colAddress;
+
+    @FXML
+    private TableColumn<?, ?> colCountry;
 
     @FXML
     private TableColumn<?, ?> colEmail;
@@ -33,14 +40,15 @@ public class SupplierViewController implements Initializable {
     private TableColumn<?, ?> colName;
 
     @FXML
-    private TableColumn<?, ?> colCountry;
-
-    @FXML
     private TableView<SupplierVeiwDTO> tblSupplierView;
 
     @FXML
     void btnBackOnAction(ActionEvent event) {
 
+    }
+    private void loadSuppliers() {
+        ObservableList<SupplierVeiwDTO> suppliers=supplierService.getAllSuppliers();
+        tblSupplierView.setItems(suppliers);
     }
 
     @Override
@@ -51,11 +59,6 @@ public class SupplierViewController implements Initializable {
         this.colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
         this.colCountry.setCellValueFactory(new PropertyValueFactory<>("country"));
         loadSuppliers();
-
-    }
-
-    private void loadSuppliers() {
-        ObservableList<SupplierVeiwDTO> suppliers=supplierService.getAllSuppliers();
-        tblSupplierView.setItems(suppliers);
     }
 }
+

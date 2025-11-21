@@ -36,11 +36,11 @@ public class CustomerService {
         if(customerRepository.getLastCustomer().getCustId()!=null){
             String lastId= String.valueOf(customerRepository.getLastCustomer().getCustId());
             lastId = lastId.split("[A-Z]")[1]; // C001==> 001
-            lastId= String.format("C%03d",(Integer.parseInt(lastId)+1));
+            lastId= String.format("C%05d",(Integer.parseInt(lastId)+1));
            return lastId;
 
         }
-        return "C001";
+        return "C00001";
     }
 
 

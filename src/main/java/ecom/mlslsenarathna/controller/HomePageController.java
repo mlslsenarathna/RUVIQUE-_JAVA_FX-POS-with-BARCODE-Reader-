@@ -185,7 +185,17 @@ public class HomePageController implements Initializable {
 
     @FXML
     void btnOrderOnAction(ActionEvent event) {
+        try {
+            Parent customerContent = FXMLLoader.load(
+                    getClass().getResource("/view/OrdersManagementVeiw.fxml")
+            );
 
+            HomePageViewBoarderPane.setCenter(customerContent);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
     }
 
     @FXML

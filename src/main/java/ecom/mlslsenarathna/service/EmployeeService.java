@@ -26,11 +26,11 @@ public class EmployeeService {
         if(getLastEmployeeID()!=null){
             String lastId= String.valueOf(getLastEmployeeID());
             lastId = lastId.split("[A-Z]")[1]; // C001==> 001
-            lastId= String.format("E%03d",(Integer.parseInt(lastId)+1));
+            lastId= String.format("E%05d",(Integer.parseInt(lastId)+1));
             return lastId;
 
         }
-        return "E001";
+        return "E00001";
 
     }
 

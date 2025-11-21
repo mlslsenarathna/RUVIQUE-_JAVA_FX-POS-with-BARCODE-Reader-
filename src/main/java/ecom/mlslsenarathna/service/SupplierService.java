@@ -39,11 +39,11 @@ public class SupplierService {
         if(getLastSupplierID()!=null){
             String lastId= String.valueOf(getLastSupplierID());
             lastId = lastId.split("[A-Z]")[1];
-            lastId= String.format("S%04d",(Integer.parseInt(lastId)+1));
+            lastId= String.format("S%05d",(Integer.parseInt(lastId)+1));
             return lastId;
 
         }
-        return "S0001";
+        return "S00001";
     }
 
     private String getLastSupplierID() {

@@ -23,11 +23,11 @@ public class AddressService {
         if(addressRepository.getLastAddressId().getAddressId()!=null){
             String lastId= String.valueOf(addressRepository.getLastAddressId().getAddressId());
             lastId = lastId.split("[A-Z]")[1];
-            lastId= String.format("A%03d",(Integer.parseInt(lastId)+1));
+            lastId= String.format("A%05d",(Integer.parseInt(lastId)+1));
             return lastId;
 
         }
-        return "A001";
+        return "A00001";
     }
 
     public AddressDTO getAddressById(String addressId) {

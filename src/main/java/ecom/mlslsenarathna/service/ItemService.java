@@ -38,11 +38,11 @@ public class ItemService {
         if (itemEntity.getItemId() != null) {
             String lastId = String.valueOf(itemRepository.getLastItem().getItemId());
             lastId = lastId.split("[A-Z]")[1]; // C001==> 001
-            lastId = String.format("I%04d", (Integer.parseInt(lastId) + 1));
+            lastId = String.format("I%05d", (Integer.parseInt(lastId) + 1));
             return lastId;
 
         }
-        return "I0001";
+        return "I00001";
 
 
     }

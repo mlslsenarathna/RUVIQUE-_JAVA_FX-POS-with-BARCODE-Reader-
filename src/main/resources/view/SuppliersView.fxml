@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="1061.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.supplier.EmployeeAttendenceOverViewController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="402.0" prefWidth="1061.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.subControllers.supplier.SupplierViewController">
    <left>
       <GridPane alignment="CENTER" prefHeight="402.0" prefWidth="1081.0" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -48,7 +48,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <JFXButton fx:id="btnBack" contentDisplay="CENTER" onAction="#btnBackOnAction" prefHeight="44.0" prefWidth="150.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-radius: 10; -fx-border-color: #E3B853; -fx-padding: 10; -fx-border-width: 2;" text="Back" GridPane.columnIndex="2">
+                  <JFXButton fx:id="btnBack" contentDisplay="CENTER" onAction="#btnBackOnAction" prefHeight="44.0" prefWidth="179.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000); -fx-border-radius: 10; -fx-border-color: #E3B853; -fx-padding: 10; -fx-border-width: 2;" text="Back" GridPane.columnIndex="2">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
