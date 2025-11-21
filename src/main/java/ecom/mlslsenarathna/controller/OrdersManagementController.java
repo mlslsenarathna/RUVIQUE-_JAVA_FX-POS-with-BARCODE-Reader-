@@ -3,37 +3,44 @@ package ecom.mlslsenarathna.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXToggleButton;
+import ecom.mlslsenarathna.controller.subControllers.order.OrderBillViewController;
 import ecom.mlslsenarathna.model.dto.ItemDTO;
 import ecom.mlslsenarathna.model.dto.OrderCartItemDTO;
 import ecom.mlslsenarathna.model.dto.OrderDTO;
-import ecom.mlslsenarathna.model.entity.OrderEntity;
-import ecom.mlslsenarathna.service.CustomerService;
-import ecom.mlslsenarathna.service.ItemService;
-import ecom.mlslsenarathna.service.OrderService;
+import ecom.mlslsenarathna.model.dto.OrderInfoDTO;
+import ecom.mlslsenarathna.service.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class OrdersManagementController implements Initializable {
     ItemService itemService=new ItemService();
     CustomerService customerService=new CustomerService();
     OrderService orderService=new OrderService();
-    ObservableList<OrderCartItemDTO> orderList= FXCollections.observableArrayList();
+    DiscountService discountService=new DiscountService();
+
+    OrderInfoService orderInfoService=new OrderInfoService();
+
 
     @FXML
     private JFXButton btnAddItemtoList;
@@ -138,16 +145,128 @@ public class OrdersManagementController implements Initializable {
     }
 
     private double calculateOrderTotal() {
-
         double total = this.tbtOrdersList.getItems().stream().mapToDouble(OrderCartItemDTO::getPrice).sum();
         this.txtTotalPeice.setText("Rs." + total + "0");
+        setNetTotal(total);
         return total;
 
     }
 
-    @FXML
-    void btnAdditemOnAction(ActionEvent event) {
+    private void setNetTotal(double total) {
 
+    }
+
+    @FXML
+    void btnPrintBillOnAction(ActionEvent event) {
+
+        placeOrder();
+       double total=calculateOrderTotal();
+
+        OrderDTO orderDTO = new OrderDTO(
+                Long.parseLong(lblOrderId.getText()),
+                LocalDateTime.now(),
+                txtCustomerMobile.getText(),
+                total
+
+        );
+
+        orderService.placeNewOrder(new OrderDTO(
+                null,
+                orderDTO.getOrderDateandTime(),
+                orderDTO.getCustomerMobile(),
+                orderDTO.getTotalPrice()
+        ));
+        tbtOrdersList.getItems();
+        List<OrderCartItemDTO> cartItems = tbtOrdersList.getItems();
+
+        String billContent = generateBillContent(orderDTO, cartItems);
+        clearCart();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/OrderBillView.fxml"));
+            Parent root = loader.load();
+
+
+            OrderBillViewController controller = loader.getController();
+            controller.setBillContent(billContent);
+
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Delete Supplier");
+            popupStage.setScene(new Scene(root));
+            popupStage.initModality(Modality.APPLICATION_MODAL); // Blocks interaction with main window
+            popupStage.setResizable(false);
+            popupStage.showAndWait();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    private void placeOrder() {
+        ObservableList<OrderCartItemDTO> itemsList = this.tbtOrdersList.getItems();
+        Iterator var3 = itemsList.iterator();
+
+        while(var3.hasNext()) {
+            OrderCartItemDTO item = (OrderCartItemDTO)var3.next();
+            ItemDTO itemDTO=itemService.searchItemByID(item.getId());
+            if (this.txtQty != null) {
+                this.orderService.updatStockCount(item.getId(), item.getQuantity());
+                this.orderInfoService.registerOrderInfo(new OrderInfoDTO(
+                       Long.parseLong(lblOrderId.getText()),
+                        item.getId(),
+                        item.getQuantity(),
+                        itemDTO.getSellingPrice()
+                ));
+            } else {
+                JOptionPane.showMessageDialog((Component)null, "Please Select items");
+            }
+        }
+
+
+
+    }
+    public void clearCart(){
+        this.tbtOrdersList.getItems().clear();
+        this.calculateOrderTotal();
+        setOrderID();
+    }
+
+
+
+
+    public String generateBillContent(OrderDTO orderDTO, List<OrderCartItemDTO> itemsList) {
+        StringBuilder bill = new StringBuilder();
+
+        bill.append("=========================================\n");
+        bill.append("          Ruvique_Aperals PVT,LTD        \n");
+        bill.append("=========================================\n");
+        bill.append(String.format("Bill ID: %s\n", orderDTO.getOrderId()));
+        bill.append(String.format("Date:    %s\n", orderDTO.getOrderDateandTime()));
+        bill.append("-----------------------------------------\n");
+        bill.append(String.format("%-5s %-20s %5s %10s\n", "QTY", "ITEM", "PRICE", "TOTAL"));
+        bill.append("-----------------------------------------\n");
+
+        double grandTotal = 0;
+        for (OrderCartItemDTO item : itemsList) {
+            double itemTotal = item.getPrice();
+            grandTotal += itemTotal;
+
+            bill.append(String.format("%-5d %-20s %5.2f %10.2f\n",
+                    item.getQuantity(),
+                    item.getName(),
+                    itemService.getSellingPriceById(item.getId()),
+                    itemTotal));
+        }
+
+        double netTotal=grandTotal*discountService.getDiscount(txtCustomerMobile.getText());
+
+        bill.append("-----------------------------------------\n");
+        bill.append(String.format("%-31s %10.2f\n", "TOTAL:", grandTotal));
+        bill.append("=========================================\n");
+        bill.append(String.format("%-31s %10.2f\n", "Net Total:", grandTotal-netTotal));
+        bill.append("=========================================\n");
+
+        return bill.toString();
     }
 
     @FXML
@@ -157,16 +276,26 @@ public class OrdersManagementController implements Initializable {
 
     @FXML
     void btnCheckOnAction(ActionEvent event) {
+        txtDiscount.setText(String.valueOf(discountService.getDiscount(txtCustomerMobile.getText())));
 
     }
 
     @FXML
     void btnDeleteItemOnAction(ActionEvent event) {
-
+        OrderCartItemDTO selectedItem = (OrderCartItemDTO) this.tbtOrdersList.getSelectionModel().getSelectedItem();
+        if (selectedItem != null) {
+            this.tbtOrdersList.getItems().remove(selectedItem);
+            this.calculateOrderTotal();
+        } else {
+            JOptionPane.showMessageDialog((Component)null, "No item Selected..");
+        }
     }
 
     @FXML
     void btnDiscountOnAction(ActionEvent event) {
+        double discount=discountService.getDiscount(txtCustomerMobile.getText());
+        double netTotal=Double.parseDouble(txtTotalPeice.getText())*discount;
+        txtNetTotal.setText("Rs."+netTotal+"0");
 
     }
 
@@ -174,6 +303,7 @@ public class OrdersManagementController implements Initializable {
     void btnResetOrderOnAction(ActionEvent event) {
         this.tbtOrdersList.getItems().clear();
         this.calculateOrderTotal();
+        setOrderID();
     }
 
 

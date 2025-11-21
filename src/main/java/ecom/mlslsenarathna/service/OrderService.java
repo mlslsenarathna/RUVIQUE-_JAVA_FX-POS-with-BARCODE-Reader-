@@ -1,6 +1,8 @@
 package ecom.mlslsenarathna.service;
 
+import ecom.mlslsenarathna.model.dto.ItemDTO;
 import ecom.mlslsenarathna.model.dto.OrderDTO;
+import ecom.mlslsenarathna.model.entity.ItemEntity;
 import ecom.mlslsenarathna.model.entity.OrderEntity;
 import ecom.mlslsenarathna.repository.OrderRepository;
 import ecom.mlslsenarathna.repository.impl.OrderRepositoryImpl;
@@ -8,6 +10,7 @@ import ecom.mlslsenarathna.repository.impl.OrderRepositoryImpl;
 
 public class OrderService {
     OrderRepository orderRepository=new OrderRepositoryImpl();
+    ItemService itemService=new ItemService();
 
     public String setOrderId() {
         OrderEntity orderEntity = orderRepository.getlastOrder();
@@ -36,4 +39,13 @@ public class OrderService {
                 orderDTO.getTotalPrice()
         ));
     }
+
+    public void updatStockCount(String id, int quantity) {
+
+        ItemDTO itemDTO=itemService.searchItemByID(id);
+        itemDTO.setStockCount(itemDTO.getStockCount()-quantity);
+        itemService.updateItemById(itemDTO);
+    }
+
+
 }

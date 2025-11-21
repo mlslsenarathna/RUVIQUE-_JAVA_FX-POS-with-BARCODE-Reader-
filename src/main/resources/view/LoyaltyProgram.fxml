@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ecom.mlslsenarathna.controller.LoyaltyProgrammeController">
+   <children>
+      <BorderPane layoutY="-3.0" prefHeight="400.0" prefWidth="600.0">
+         <center>
+            <GridPane BorderPane.alignment="CENTER">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="194.39996337890625" minWidth="10.0" prefWidth="19.199981689453125" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.8000183105469" minWidth="10.0" prefWidth="380.8000183105469" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="127.80000152587891" minHeight="10.0" prefHeight="49.40000762939454" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="217.39999237060547" minHeight="10.0" prefHeight="155.99999389648437" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="143.00000610351566" minHeight="10.0" prefHeight="143.00000610351566" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="40.0" prefWidth="472.0" style="-fx-font-size:28; -fx-font-weight:bold; -fx-text-fill: white;" text="Comming soon......" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" prefHeight="40.0" prefWidth="472.0" style="-fx-font-size:28; -fx-font-weight:bold; -fx-text-fill: white;" text="Loyalty Programme" GridPane.columnIndex="1" />
+               </children>
+            </GridPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -320,4 +320,9 @@ public class ItemService {
             return false;
         }
     }
+
+    public double getSellingPriceById(String id) {
+        ItemEntity itemEntity=itemRepository.getItemByID(id);
+        return itemEntity.getSellingPrice();
+    }
 }

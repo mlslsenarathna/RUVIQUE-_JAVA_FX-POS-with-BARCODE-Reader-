@@ -405,7 +405,7 @@
                      </rowConstraints>
                      <children>
                         <Pane prefHeight="44.0" prefWidth="162.0" GridPane.columnIndex="2" />
-                        <JFXButton fx:id="btnPrintBill" onAction="#btnAdditemOnAction" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Print Bill" GridPane.columnIndex="1">
+                        <JFXButton fx:id="btnPrintBill" onAction="#btnPrintBillOnAction" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: linear-gradient(to bottom right, #4a2c00, #000000);" text="Print Bill" GridPane.columnIndex="1">
                            <textFill>
                               <LinearGradient endX="1.0" endY="1.0">
                                  <stops>
