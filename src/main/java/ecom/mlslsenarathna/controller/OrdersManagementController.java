@@ -302,7 +302,11 @@ public class OrdersManagementController implements Initializable {
     @FXML
     void btnResetOrderOnAction(ActionEvent event) {
         this.tbtOrdersList.getItems().clear();
-        this.calculateOrderTotal();
+       txtDiscount.setText(null);
+       txtTotalPeice.setText(null);
+       txtCustomerMobile.setText(null);
+       txtNetTotal.setText(null);
+       txtItenCode.setText(null);
         setOrderID();
     }
 
